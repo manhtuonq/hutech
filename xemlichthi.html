@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUTECH - Trường Đại học Công nghệ TP.HCM</title>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header styles */
+       /* Reset some basic elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Header Styles */
+.header {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-top {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.logo-container {
+  max-width: 100%;
+  text-align: center;
+}
+
+.logo-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* User bar styles */
+.user-bar {
+  background-color: #f5f5f5;
+  padding: 10px 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #333;
+}
+
+.flag-container {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.flag-container img {
+  width: 24px;
+  height: auto;
+  margin-right: 5px;
+  border: 1px solid #ddd;
+}
+
+.user-bar a {
+  color: #0066cc;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.user-bar a:hover {
+  text-decoration: underline;
+}
+
+.user-bar select {
+  padding: 2px 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 0 5px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .user-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+  
+  .flag-container {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  .user-bar select,
+  .user-bar a {
+    margin: 5px 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header-top {
+    padding: 5px;
+  }
+  
+  .user-bar {
+    font-size: 12px;
+  }
+  
+  .flag-container img {
+    width: 20px;
+  }
+  
+  .user-bar select {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .slogan {
+            color: #00a0e9;
+            font-style: italic;
+            font-size: 18px;
+            margin-left: 20px;
+        }
+
+        .campus-image {
+            width: 200px;
+            height: auto;
+        }
+
+        .user-bar {
+            background-color: #FF6600;
+            padding: 5px 10px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            color: white;
+            font-size: 13px;
+        }
+
+        .user-bar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+
+        .user-bar img {
+            width: 16px;
+            height: 11px;
+            margin-right: 5px;
+        }
+
+        .flag-container {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+        }
+
+        /* Navigation styles */
+    /* Main navigation styles */
+.main-nav {
+  width: 100%;
+  background-color: #003366; /* Dark blue background */
+  font-family: Arial, sans-serif;
+}
+
+nav {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-item {
+  color: white;
+  text-decoration: none;
+  padding: 15px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+.nav-item:hover {
+  background-color: #004d99; /* Slightly lighter blue on hover */
+}
+
+/* Desktop and larger tablets */
+@media screen and (min-width: 992px) {
+  .nav-list {
+    justify-content: space-between;
+  }
+  
+  .nav-item {
+    flex: 1;
+  }
+}
+
+/* Medium devices (tablets) */
+@media screen and (max-width: 991px) {
+  .nav-item {
+    padding: 12px 8px;
+    font-size: 13px;
+    flex-basis: auto;
+  }
+}
+
+/* Small devices (landscape phones) */
+@media screen and (max-width: 768px) {
+  .nav-list {
+    flex-direction: column;
+  }
+  
+  .nav-item {
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Extra small devices (portrait phones) */
+@media screen and (max-width: 576px) {
+  .nav-item {
+    font-size: 12px;
+    padding: 10px 0;
+  }
+  
+  /* Mobile menu toggle (you would need to add a button in your HTML) */
+  .mobile-menu-button {
+    display: block;
+    width: 100%;
+    background-color: #002244;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  /* For JavaScript toggle functionality */
+  .nav-list.collapsed {
+    display: none;
+  }
+}
+
+
+    
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-top">
+                <div class="logo-container">
+                    <img src="https://daotao.hutech.edu.vn/MessageFile/banner.jpg" alt="HUTECH University" class="logo-image">
+                </div>
+            </div>
+            <div class="user-bar">
+                <div class="flag-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png" alt="English">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/1200px-Flag_of_Vietnam.svg.png" alt="Vietnamese">
+                </div>
+                Chào bạn Bùi Thị Tuyết Nhung (24820700027) | 
+                <a href="#">Xem thông báo</a> | 
+                <a href="#">Thoát</a>
+                <select style="margin-left: 10px;">
+                    <option>Font Unicode</option>
+                </select>
+                <a href="#">Thay Đổi Font</a>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="main-nav">
+            <nav>
+                <div class="nav-list">
+                    <a href="#" class="nav-item">TRANG CHỦ</a>
+                    <a href="dangkyhocphan.html" class="nav-item">ĐĂNG KÝ HỌC PHẦN</a>
+                    <a href="xemtkb.html" class="nav-item">XEM TKB</a>
+                    <a href="xemlichthi.html" class="nav-item">XEM LỊCH THI</a>
+                    <a href="xemhocphi.html" class="nav-item">XEM HỌC PHÍ</a>
+                    <a href="xemdiem.html" class="nav-item">XEM ĐIỂM</a>
+                    <a href="xemhptien" class="nav-item">XEM HP TIÊN QUYẾT</a>
+                    <a href="#" class="nav-item">SỬA TT CÁ NHÂN</a>
+                    <a href="#" class="nav-item">NỘP CHỨNG CHỈ</a>
+                </div>
+            </nav>
+        </div>
+
+
+
+
+
+
+        <div class="max-w-6xl mx-auto bg-white shadow-md">
+            <!-- Exam Period Selection -->
+            <div class="bg-blue-100 p-3 flex items-center">
+                <div class="bg-teal-600 text-white px-3 py-1 font-bold">CHỌN HỌC KỲ XEM LỊCH THI</div>
+                <select class="mx-2 border border-gray-400 px-2 py-1">
+                    <option>Học kỳ 2 - Năm học 2024-2025</option>
+                </select>
+                <button class="bg-blue-100 border border-gray-400 px-3 py-1">Xem toàn trường</button>
+            </div>
+        
+            <!-- Student Information -->
+            <div class="p-4 flex justify-center">
+                <div class="bg-blue-100 w-full max-w-3xl p-4 rounded-md">
+                    <table class="w-full">
+                        <tr>
+                            <td class="w-1/3 py-1">Mã sinh viên</td>
+                            <td class="w-2/3 font-bold py-1">24820700027</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1">Tên sinh viên</td>
+                            <td class="font-bold py-1">Bùi Thị Tuyết Nhung</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1">Phái</td>
+                            <td class="py-1">Nữ</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1">Nơi sinh</td>
+                            <td class="py-1">Bình Dương</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1">Lớp</td>
+                            <td class="py-1">24DBTA1</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1">Ngành</td>
+                            <td class="py-1">Công nghệ thẩm mỹ</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1">Khoa</td>
+                            <td class="py-1">Viện Khoa học ứng dụng HUTECH</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1">Hệ đào tạo</td>
+                            <td class="py-1">Đại học chính quy</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1">Khóa học</td>
+                            <td class="font-bold py-1">2024-2028</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1">Cố vấn học tập</td>
+                            <td class="py-1"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        
+            <!-- Exam Schedule Table -->
+            <div class="px-2 pb-6">
+                <table class="w-full border-collapse">
+                    <!-- Header row -->
+                    <tr class="bg-blue-600 text-white">
+                        <th class="border border-gray-400 p-2 text-center">STT</th>
+                        <th class="border border-gray-400 p-2 text-center">Mã HP</th>
+                        <th class="border border-gray-400 p-2 text-center">Tên học phần</th>
+                        <th class="border border-gray-400 p-2 text-center">Nhóm thi</th>
+                        <th class="border border-gray-400 p-2 text-center">Ngày Thi</th>
+                        <th class="border border-gray-400 p-2 text-center">Giờ BD</th>
+                        <th class="border border-gray-400 p-2 text-center">Số phút</th>
+                        <th class="border border-gray-400 p-2 text-center">Phòng</th>
+                        <th class="border border-gray-400 p-2 text-center">Ghi chú</th>
+                    </tr>
+                    <!-- Row 1 -->
+                    <tr class="hover:bg-gray-100">
+                        <td class="border border-gray-400 p-2 text-center">1</td>
+                        <td class="border border-gray-400 p-2 text-center">BIO2014</td>
+                        <td class="border border-gray-400 p-2">Sinh học đại cương</td>
+                        <td class="border border-gray-400 p-2 text-center">01</td>
+                        <td class="border border-gray-400 p-2 text-center">10/04/2025</td>
+                        <td class="border border-gray-400 p-2 text-center">07:30</td>
+                        <td class="border border-gray-400 p-2 text-center">60</td>
+                        <td class="border border-gray-400 p-2 text-center">E1-05.08</td>
+                        <td class="border border-gray-400 p-2 text-center">TN giấy</td>
+                    </tr>
+                    <!-- Row 2 -->
+                    <tr class="hover:bg-gray-100">
+                        <td class="border border-gray-400 p-2 text-center">2</td>
+                        <td class="border border-gray-400 p-2 text-center">NDF210</td>
+                        <td class="border border-gray-400 p-2">Quốc phòng, an ninh 3</td>
+                        <td class="border border-gray-400 p-2 text-center">E01</td>
+                        <td class="border border-gray-400 p-2 text-center">18/04/2025</td>
+                        <td class="border border-gray-400 p-2 text-center">07:30</td>
+                        <td class="border border-gray-400 p-2 text-center">45</td>
+                        <td class="border border-gray-400 p-2 text-center">E1-04.04-58</td>
+                        <td class="border border-gray-400 p-2 text-center">TN máy tính</td>
+                    </tr>
+                </table>
+            </div>
+        
+            <!-- Print Button -->
+            <div class="flex justify-center py-4">
+                <button class="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded hover:bg-gray-100">
+                    <span>🖨️</span>
+                    <span>In Lịch Thi</span>
+                </button>
+            </div>
+        
+            <!-- Footer -->
+            <div class="border-t mt-6 pt-2 text-sm text-gray-700 p-2">
+                <div class="flex items-center gap-2 mb-1">
+                    <span>•</span>
+                    <span>Copyright ©2009 Trường Đại Học Công Nghệ TP.HCM. Quản lý bởi</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span>•</span>
+                    <span>Thiết kế bởi cty Phần mềm Anh Quân</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

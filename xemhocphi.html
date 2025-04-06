@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUTECH - Trường Đại học Công nghệ TP.HCM</title>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="/image/sada.webp">
+
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header styles */
+       /* Reset some basic elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Header Styles */
+.header {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-top {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.logo-container {
+  max-width: 100%;
+  text-align: center;
+}
+
+.logo-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* User bar styles */
+.user-bar {
+  background-color: #f5f5f5;
+  padding: 10px 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #333;
+}
+
+.flag-container {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.flag-container img {
+  width: 24px;
+  height: auto;
+  margin-right: 5px;
+  border: 1px solid #ddd;
+}
+
+.user-bar a {
+  color: #0066cc;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.user-bar a:hover {
+  text-decoration: underline;
+}
+
+.user-bar select {
+  padding: 2px 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 0 5px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .user-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+  
+  .flag-container {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  .user-bar select,
+  .user-bar a {
+    margin: 5px 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header-top {
+    padding: 5px;
+  }
+  
+  .user-bar {
+    font-size: 12px;
+  }
+  
+  .flag-container img {
+    width: 20px;
+  }
+  
+  .user-bar select {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .slogan {
+            color: #00a0e9;
+            font-style: italic;
+            font-size: 18px;
+            margin-left: 20px;
+        }
+
+        .campus-image {
+            width: 200px;
+            height: auto;
+        }
+
+        .user-bar {
+            background-color: #FF6600;
+            padding: 5px 10px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            color: white;
+            font-size: 13px;
+        }
+
+        .user-bar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+
+        .user-bar img {
+            width: 16px;
+            height: 11px;
+            margin-right: 5px;
+        }
+
+        .flag-container {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+        }
+
+        /* Navigation styles */
+    /* Main navigation styles */
+.main-nav {
+  width: 100%;
+  background-color: #003366; /* Dark blue background */
+  font-family: Arial, sans-serif;
+}
+
+nav {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-item {
+  color: white;
+  text-decoration: none;
+  padding: 15px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+.nav-item:hover {
+  background-color: #004d99; /* Slightly lighter blue on hover */
+}
+
+/* Desktop and larger tablets */
+@media screen and (min-width: 992px) {
+  .nav-list {
+    justify-content: space-between;
+  }
+  
+  .nav-item {
+    flex: 1;
+  }
+}
+
+/* Medium devices (tablets) */
+@media screen and (max-width: 991px) {
+  .nav-item {
+    padding: 12px 8px;
+    font-size: 13px;
+    flex-basis: auto;
+  }
+}
+
+/* Small devices (landscape phones) */
+@media screen and (max-width: 768px) {
+  .nav-list {
+    flex-direction: column;
+  }
+  
+  .nav-item {
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Extra small devices (portrait phones) */
+@media screen and (max-width: 576px) {
+  .nav-item {
+    font-size: 12px;
+    padding: 10px 0;
+  }
+  
+  /* Mobile menu toggle (you would need to add a button in your HTML) */
+  .mobile-menu-button {
+    display: block;
+    width: 100%;
+    background-color: #002244;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  /* For JavaScript toggle functionality */
+  .nav-list.collapsed {
+    display: none;
+  }
+}
+
+
+    
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-top">
+                <div class="logo-container">
+                    <img src="https://daotao.hutech.edu.vn/MessageFile/banner.jpg" alt="HUTECH University" class="logo-image">
+                </div>
+            </div>
+            <div class="user-bar">
+                <div class="flag-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png" alt="English">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/1200px-Flag_of_Vietnam.svg.png" alt="Vietnamese">
+                </div>
+                Chào bạn Bùi Thị Tuyết Nhung (24820700027) | 
+                <a href="#">Xem thông báo</a> | 
+                <a href="#">Thoát</a>
+                <select style="margin-left: 10px;">
+                    <option>Font Unicode</option>
+                </select>
+                <a href="#">Thay Đổi Font</a>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="main-nav">
+            <nav>
+                <div class="nav-list">
+                    <a href="#" class="nav-item">TRANG CHỦ</a>
+                    <a href="dangkyhocphan.html" class="nav-item">ĐĂNG KÝ HỌC PHẦN</a>
+                    <a href="xemtkb.html" class="nav-item">XEM TKB</a>
+                    <a href="xemlichthi.html" class="nav-item">XEM LỊCH THI</a>
+                    <a href="xemhocphi.html" class="nav-item">XEM HỌC PHÍ</a>
+                    <a href="xemdiem.html" class="nav-item">XEM ĐIỂM</a>
+                    <a href="xemhptien" class="nav-item">XEM HP TIÊN QUYẾT</a>
+                    <a href="#" class="nav-item">SỬA TT CÁ NHÂN</a>
+                    <a href="#" class="nav-item">NỘP CHỨNG CHỈ</a>
+                </div>
+            </nav>
+        </div>
+
+
+
+
+
+
+        <div class="max-w-6xl mx-auto bg-white shadow-md">
+          
+            <div class="p-4">
+                <!-- Student Information Card -->
+                <div class="bg-blue-100 border border-blue-300 rounded p-4 mb-4">
+                    <table class="w-full">
+                        <tr>
+                            <td class="font-bold">Mã sinh viên</td>
+                            <td>24820700027</td>
+                            <td class="font-bold">Tên sinh viên</td>
+                            <td>Bùi Thị Tuyết Nhung</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold">Phái</td>
+                            <td>Nữ</td>
+                            <td class="font-bold">Nơi sinh</td>
+                            <td>Bình Dương</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold">Lớp</td>
+                            <td>24DBTA1</td>
+                            <td class="font-bold">Ngành</td>
+                            <td>Công nghệ thẩm mỹ</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold">Khoa</td>
+                            <td>Viện Khoa học ứng dụng HUTECH</td>
+                            <td class="font-bold">Hệ đào tạo</td>
+                            <td>Đại học chính quy</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold">Khóa học</td>
+                            <td>2024-2028</td>
+                            <td class="font-bold">Cố vấn học tập</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            
+                <!-- Warning Message -->
+                <div class="bg-red-100 text-red-700 p-3 rounded mb-4 font-bold">
+                    Lưu ý: Các học phần sinh viên vừa đăng ký online hiện đang có học phí bằng 0, hệ thống sẽ cập nhật học phí sau khi kết thúc đợt đăng ký học phần
+                </div>
+            
+                <!-- Semester Title -->
+                <div class="text-blue-800 text-2xl font-bold mb-4">
+                    Học kỳ 3 - Năm học 2024-2025
+                </div>
+            
+                <!-- Course Registration Table -->
+                <div class="overflow-x-auto mb-4">
+                    <table class="w-full border-collapse">
+                        <thead>
+                            <tr class="bg-blue-500 text-white">
+                                <th class="border border-blue-600 p-2 text-center">STT</th>
+                                <th class="border border-blue-600 p-2 text-center">Mã HP</th>
+                                <th class="border border-blue-600 p-2 text-center">Tên học phần</th>
+                                <th class="border border-blue-600 p-2 text-center">Mã nhóm</th>
+                                <th class="border border-blue-600 p-2 text-center">Tổ TH</th>
+                                <th class="border border-blue-600 p-2 text-center">Số TC</th>
+                                <th class="border border-blue-600 p-2 text-center">Hệ số K</th>
+                                <th class="border border-blue-600 p-2 text-center">Phí tài liệu</th>
+                                <th class="border border-blue-600 p-2 text-center">H</th>
+                                <th class="border border-blue-600 p-2 text-center">Học phí</th>
+                                <th class="border border-blue-600 p-2 text-center">Miễn giảm</th>
+                                <th class="border border-blue-600 p-2 text-center">Phải đóng</th>
+                                <th class="border border-blue-600 p-2 text-center">Ghi chú</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border border-gray-300 p-2 text-center">1</td>
+                                <td class="border border-gray-300 p-2 text-center">PSY167</td>
+                                <td class="border border-gray-300 p-2">Tâm lý học ứng dụng</td>
+                                <td class="border border-gray-300 p-2 text-center">57</td>
+                                <td class="border border-gray-300 p-2 text-center"></td>
+                                <td class="border border-gray-300 p-2 text-center">3</td>
+                                <td class="border border-gray-300 p-2 text-center">1.1</td>
+                                <td class="border border-gray-300 p-2 text-center">45 000</td>
+                                <td class="border border-gray-300 p-2 text-center"></td>
+                                <td class="border border-gray-300 p-2 text-right">4 620 000</td>
+                                <td class="border border-gray-300 p-2 text-right">0</td>
+                                <td class="border border-gray-300 p-2 text-right">4 665 000</td>
+                                <td class="border border-gray-300 p-2"></td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 p-2 text-center">2</td>
+                                <td class="border border-gray-300 p-2 text-center">POS107</td>
+                                <td class="border border-gray-300 p-2">Lịch sử Đảng Cộng sản Việt Nam</td>
+                                <td class="border border-gray-300 p-2 text-center">40</td>
+                                <td class="border border-gray-300 p-2 text-center"></td>
+                                <td class="border border-gray-300 p-2 text-center">2</td>
+                                <td class="border border-gray-300 p-2 text-center">0</td>
+                                <td class="border border-gray-300 p-2 text-center">60 000</td>
+                                <td class="border border-gray-300 p-2 text-center"></td>
+                                <td class="border border-gray-300 p-2 text-right">2 800 000</td>
+                                <td class="border border-gray-300 p-2 text-right">0</td>
+                                <td class="border border-gray-300 p-2 text-right">2 860 000</td>
+                                <td class="border border-gray-300 p-2"></td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 p-2 text-center">3</td>
+                                <td class="border border-gray-300 p-2 text-center">CAP211</td>
+                                <td class="border border-gray-300 p-2">Nhập môn công nghệ thông tin</td>
+                                <td class="border border-gray-300 p-2 text-center">05</td>
+                                <td class="border border-gray-300 p-2 text-center">01</td>
+                                <td class="border border-gray-300 p-2 text-center">3</td>
+                                <td class="border border-gray-300 p-2 text-center">1.05</td>
+                                <td class="border border-gray-300 p-2 text-center">85 000</td>
+                                <td class="border border-gray-300 p-2 text-center"></td>
+                                <td class="border border-gray-300 p-2 text-right">4 410 000</td>
+                                <td class="border border-gray-300 p-2 text-right">0</td>
+                                <td class="border border-gray-300 p-2 text-right">4 495 000</td>
+                                <td class="border border-gray-300 p-2"></td>
+                            </tr>
+                            <tr class="bg-gray-100 font-bold">
+                                <td class="border border-gray-300 p-2 text-center" colspan="5"></td>
+                                <td class="border border-gray-300 p-2 text-center">8</td>
+                                <td class="border border-gray-300 p-2 text-center">2.15</td>
+                                <td class="border border-gray-300 p-2 text-center">190 000</td>
+                                <td class="border border-gray-300 p-2 text-center"></td>
+                                <td class="border border-gray-300 p-2 text-right">11 830 000</td>
+                                <td class="border border-gray-300 p-2 text-right">0</td>
+                                <td class="border border-gray-300 p-2 text-right">12 020 000</td>
+                                <td class="border border-gray-300 p-2"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="max-w-xl mx-auto">
+                    <!-- Thông báo thanh toán thành công -->
+                    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 rounded-full p-2 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                            <h2 class="text-lg font-bold text-green-600">Sinh viên đã thanh toán thành công chi phí học kì</h2>
+                        </div>
+                        <p class="text-gray-600 mb-2">Thời gian thanh toán: 07/04/2025 - 10:30</p>
+                        <p class="text-gray-600 mb-4">Mã giao dịch: TT-SV-20250407-0001</p>
+                    </div>
+            
+                    <!-- Bảng tóm tắt học phí -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-bold mb-4">Chi tiết học phí</h3>
+                        <div class="mb-4">
+                            <table class="w-full border-collapse">
+                                <tr>
+                                    <td class="p-2 font-bold">Tổng số tín chỉ:</td>
+                                    <td class="p-2">8</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 font-bold">Tổng số tín chỉ học phí:</td>
+                                    <td class="p-2">8.45</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 font-bold">Tổng số tiền học phí học kỳ là:</td>
+                                    <td class="p-2">12 020 000 VND</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 font-bold">Số tiền đóng tối thiểu lần đầu:</td>
+                                    <td class="p-2">12 020 000 VND</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 font-bold">Số tiền đã đóng trong học kỳ:</td>
+                                    <td class="p-2 font-bold text-green-600">12 020 000 VND</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 font-bold">Số tiền còn nợ:</td>
+                                    <td class="p-2 font-bold text-green-600">0 VND</td>
+                                </tr>
+                            </table>
+                        </div>
+                    
+                        <!-- Các nút chức năng -->
+                        <div class="flex flex-wrap gap-4 mb-4">
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                In biên lai
+                            </button>
+                            <button class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
+                                Quay lại trang chủ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Payment Instructions -->
+                <div class="bg-yellow-50 border border-yellow-200 p-4 rounded">
+                    <h3 class="font-bold text-lg mb-2">Hướng dẫn thanh toán</h3>
+                    <ul class="list-disc list-inside">
+                        <li class="mb-2">Sinh viên có thể thanh toán trực tuyến qua các ứng dụng ngân hàng</li>
+                        <li class="mb-2">Nộp tiền mặt tại Phòng Tài chính (Lầu 3, Tòa nhà B) từ 8:00-16:30 các ngày làm việc</li>
+                        <li class="mb-2">Chuyển khoản qua ngân hàng với nội dung: <span class="font-semibold">24820700027_BuiThiTuyetNhung</span></li>
+                        <li class="mb-2">Mọi thắc mắc về học phí vui lòng liên hệ qua email: phongkhtc@hutech.edu.vn</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="border-t mt-6 pt-2 text-sm text-gray-700 p-2">
+                <div class="flex items-center gap-2 mb-1">
+                    <span>•</span>
+                    <span>Copyright ©2009 Trường Đại Học Công Nghệ TP.HCM. Quản lý bởi</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span>•</span>
+                    <span>Thiết kế bởi cty Phần mềm Anh Quân</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

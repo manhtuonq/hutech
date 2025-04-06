@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUTECH - Trường Đại học Công nghệ TP.HCM</title>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header styles */
+       /* Reset some basic elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Header Styles */
+.header {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-top {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.logo-container {
+  max-width: 100%;
+  text-align: center;
+}
+
+.logo-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* User bar styles */
+.user-bar {
+  background-color: #f5f5f5;
+  padding: 10px 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #333;
+}
+
+.flag-container {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.flag-container img {
+  width: 24px;
+  height: auto;
+  margin-right: 5px;
+  border: 1px solid #ddd;
+}
+
+.user-bar a {
+  color: #0066cc;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.user-bar a:hover {
+  text-decoration: underline;
+}
+
+.user-bar select {
+  padding: 2px 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 0 5px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .user-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+  
+  .flag-container {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  .user-bar select,
+  .user-bar a {
+    margin: 5px 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header-top {
+    padding: 5px;
+  }
+  
+  .user-bar {
+    font-size: 12px;
+  }
+  
+  .flag-container img {
+    width: 20px;
+  }
+  
+  .user-bar select {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .slogan {
+            color: #00a0e9;
+            font-style: italic;
+            font-size: 18px;
+            margin-left: 20px;
+        }
+
+        .campus-image {
+            width: 200px;
+            height: auto;
+        }
+
+        .user-bar {
+            background-color: #FF6600;
+            padding: 5px 10px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            color: white;
+            font-size: 13px;
+        }
+
+        .user-bar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+
+        .user-bar img {
+            width: 16px;
+            height: 11px;
+            margin-right: 5px;
+        }
+
+        .flag-container {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+        }
+
+        /* Navigation styles */
+    /* Main navigation styles */
+.main-nav {
+  width: 100%;
+  background-color: #003366; /* Dark blue background */
+  font-family: Arial, sans-serif;
+}
+
+nav {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-item {
+  color: white;
+  text-decoration: none;
+  padding: 15px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+.nav-item:hover {
+  background-color: #004d99; /* Slightly lighter blue on hover */
+}
+
+/* Desktop and larger tablets */
+@media screen and (min-width: 992px) {
+  .nav-list {
+    justify-content: space-between;
+  }
+  
+  .nav-item {
+    flex: 1;
+  }
+}
+
+/* Medium devices (tablets) */
+@media screen and (max-width: 991px) {
+  .nav-item {
+    padding: 12px 8px;
+    font-size: 13px;
+    flex-basis: auto;
+  }
+}
+
+/* Small devices (landscape phones) */
+@media screen and (max-width: 768px) {
+  .nav-list {
+    flex-direction: column;
+  }
+  
+  .nav-item {
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Extra small devices (portrait phones) */
+@media screen and (max-width: 576px) {
+  .nav-item {
+    font-size: 12px;
+    padding: 10px 0;
+  }
+  
+  /* Mobile menu toggle (you would need to add a button in your HTML) */
+  .mobile-menu-button {
+    display: block;
+    width: 100%;
+    background-color: #002244;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  /* For JavaScript toggle functionality */
+  .nav-list.collapsed {
+    display: none;
+  }
+}
+
+
+    
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-top">
+                <div class="logo-container">
+                    <img src="https://daotao.hutech.edu.vn/MessageFile/banner.jpg" alt="HUTECH University" class="logo-image">
+                </div>
+            </div>
+            <div class="user-bar">
+                <div class="flag-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png" alt="English">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/1200px-Flag_of_Vietnam.svg.png" alt="Vietnamese">
+                </div>
+                Chào bạn Bùi Thị Tuyết Nhung (24820700027) | 
+                <a href="#">Xem thông báo</a> | 
+                <a href="#">Thoát</a>
+                <select style="margin-left: 10px;">
+                    <option>Font Unicode</option>
+                </select>
+                <a href="#">Thay Đổi Font</a>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="main-nav">
+            <nav>
+                <div class="nav-list">
+                    <a href="#" class="nav-item">TRANG CHỦ</a>
+                    <a href="dangkyhocphan.html" class="nav-item">ĐĂNG KÝ HỌC PHẦN</a>
+                    <a href="xemtkb.html" class="nav-item">XEM TKB</a>
+                    <a href="xemlichthi.html" class="nav-item">XEM LỊCH THI</a>
+                    <a href="xemhocphi.html" class="nav-item">XEM HỌC PHÍ</a>
+                    <a href="xemdiem.html" class="nav-item">XEM ĐIỂM</a>
+                    <a href="xemhptien" class="nav-item">XEM HP TIÊN QUYẾT</a>
+                    <a href="#" class="nav-item">SỬA TT CÁ NHÂN</a>
+                    <a href="#" class="nav-item">NỘP CHỨNG CHỈ</a>
+                </div>
+            </nav>
+        </div>
+
+
+
+
+
+
+        <div class="max-w-6xl mx-auto bg-white shadow-md">
+          
+    
+            <!-- Search Filters -->
+            <div class="p-4 border-b border-gray-300">
+                <div class="mb-2 flex items-center">
+                    <span class="mr-2">Lọc theo học phần:</span>
+                    <input type="text" class="border border-gray-300 px-2 py-1 w-64">
+                    <button class="bg-gray-200 border border-gray-400 px-2 py-1 ml-2">Lọc >></button>
+                </div>
+                <div class="mb-2">
+                    <span>Lọc theo điều kiện:</span>
+                </div>
+                <div class="text-red-500 font-medium">
+                    Thông báo: ngoài thời gian đăng ký. Sinh viên không được chọn hoặc hiệu chỉnh học phần.
+                </div>
+            </div>
+    
+            <!-- Course Table -->
+            <div class="max-w-6xl mx-auto bg-white shadow-md">
+                <!-- Header and navigation sections remain the same -->
+                
+                <!-- Course Table - Now much taller -->
+                <div class="border border-gray-300 mx-4 my-4">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-blue-500 text-white text-center">
+                                <th class="py-2 px-1 border border-gray-300">Mã HP</th>
+                                <th class="py-2 px-4 border border-gray-300">Tên học phần</th>
+                                <th class="py-2 px-1 border border-gray-300">Nhóm HP</th>
+                                <th class="py-2 px-1 border border-gray-300">TTH</th>
+                                <th class="py-2 px-1 border border-gray-300">STC</th>
+                                <th class="py-2 px-1 border border-gray-300">STCHP</th>
+                                <th class="py-2 px-1 border border-gray-300">Mã lớp</th>
+                                <th class="py-2 px-1 border border-gray-300">CL</th>
+                                <th class="py-2 px-1 border border-gray-300">THỨ</th>
+                                <th class="py-2 px-1 border border-gray-300">Tiết BD</th>
+                                <th class="py-2 px-1 border border-gray-300">ST</th>
+                                <th class="py-2 px-1 border border-gray-300">Phòng</th>
+                                <th class="py-2 px-4 border border-gray-300">Giảng viên</th>
+                                <th class="py-2 px-1 border border-gray-300">TG học</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Empty tall table with just one row that has a significant height -->
+                            <tr>
+                                <td colspan="14" class="border border-gray-300" style="height: 350px;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- Arrow indicators -->
+                    <div class="flex justify-between px-2">
+                        <div>▲</div>
+                        <div>▼</div>
+                    </div>
+                </div>
+        
+                <!-- Selected Courses Section -->
+                <div class="mx-4 my-6">
+                    <h2 class="font-bold text-lg mb-2">DANH SÁCH HỌC PHẦN ĐÃ CHỌN</h2>
+                    <!-- The rest remains the same -->
+                </div>
+            </div>
+    
+            <!-- Selected Courses Section -->
+            <div class="mx-4 my-6">
+                <h2 class="font-bold text-lg mb-2">DANH SÁCH HỌC PHẦN ĐÃ CHỌN</h2>
+                <div class="border border-gray-300">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-blue-500 text-white text-center">
+                                <th class="py-2 px-1 border border-gray-300">STT</th>
+                                <th class="py-2 px-1 border border-gray-300">Mã HP</th>
+                                <th class="py-2 px-4 border border-gray-300">Tên học phần</th>
+                                <th class="py-2 px-1 border border-gray-300">Nhóm HP</th>
+                                <th class="py-2 px-1 border border-gray-300">TTH</th>
+                                <th class="py-2 px-1 border border-gray-300">STC</th>
+                                <th class="py-2 px-1 border border-gray-300">STCHP</th>
+                                <th class="py-2 px-4 border border-gray-300">Trạng thái học phần</th>
+                                <th class="py-2 px-1 border border-gray-300"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <tr>
+                                <td class="border border-gray-300 py-1">1</td>
+                                <td class="border border-gray-300">PSY167</td>
+                                <td class="border border-gray-300 text-left px-2">Tâm lý học ứng dụng</td>
+                                <td class="border border-gray-300">57</td>
+                                <td class="border border-gray-300"></td>
+                                <td class="border border-gray-300">3</td>
+                                <td class="border border-gray-300">3.3</td>
+                                <td class="border border-gray-300 text-left px-2">Đã lưu vào CSDL</td>
+                                <td class="border border-gray-300"><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 py-1">2</td>
+                                <td class="border border-gray-300">POS107</td>
+                                <td class="border border-gray-300 text-left px-2">Lịch sử Đảng Cộng sản Việt Nam</td>
+                                <td class="border border-gray-300">40</td>
+                                <td class="border border-gray-300"></td>
+                                <td class="border border-gray-300">2</td>
+                                <td class="border border-gray-300">2</td>
+                                <td class="border border-gray-300 text-left px-2">Đã lưu vào CSDL</td>
+                                <td class="border border-gray-300"><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 py-1">3</td>
+                                <td class="border border-gray-300">CAP211</td>
+                                <td class="border border-gray-300 text-left px-2">Nhập môn công nghệ thông tin</td>
+                                <td class="border border-gray-300">05</td>
+                                <td class="border border-gray-300">01</td>
+                                <td class="border border-gray-300">3</td>
+                                <td class="border border-gray-300">3.15</td>
+                                <td class="border border-gray-300 text-left px-2">Đã lưu vào CSDL</td>
+                                <td class="border border-gray-300"><input type="checkbox"></td>
+                            </tr>
+                            <tr class="font-bold">
+                                <td class="border border-gray-300 py-1" colspan="4">Tổng cộng</td>
+                                <td class="border border-gray-300"></td>
+                                <td class="border border-gray-300">8</td>
+                                <td class="border border-gray-300">08</td>
+                                <td class="border border-gray-300" colspan="2"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="bg-gray-200 py-2 px-4 flex justify-end">
+                        <button class="bg-blue-100 border border-blue-400 px-4 py-1 mr-2">Lưu Đăng Ký</button>
+                        <button class="bg-blue-100 border border-blue-400 px-4 py-1">Xóa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

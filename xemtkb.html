@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUTECH - Trường Đại học Công nghệ TP.HCM</title>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header styles */
+       /* Reset some basic elements */
+
+
+/* Header Styles */
+.header {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-top {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.logo-container {
+  max-width: 100%;
+  text-align: center;
+}
+
+.logo-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* User bar styles */
+.user-bar {
+  background-color: #f5f5f5;
+  padding: 10px 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #333;
+}
+
+.flag-container {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.flag-container img {
+  width: 24px;
+  height: auto;
+  margin-right: 5px;
+  border: 1px solid #ddd;
+}
+
+.user-bar a {
+  color: #0066cc;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.user-bar a:hover {
+  text-decoration: underline;
+}
+
+.user-bar select {
+  padding: 2px 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 0 5px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .user-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+  
+  .flag-container {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  .user-bar select,
+  .user-bar a {
+    margin: 5px 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header-top {
+    padding: 5px;
+  }
+  
+  .user-bar {
+    font-size: 12px;
+  }
+  
+  .flag-container img {
+    width: 20px;
+  }
+  
+  .user-bar select {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .slogan {
+            color: #00a0e9;
+            font-style: italic;
+            font-size: 18px;
+            margin-left: 20px;
+        }
+
+        .campus-image {
+            width: 200px;
+            height: auto;
+        }
+
+        .user-bar {
+            background-color: #FF6600;
+            padding: 5px 10px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            color: white;
+            font-size: 13px;
+        }
+
+        .user-bar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+
+        .user-bar img {
+            width: 16px;
+            height: 11px;
+            margin-right: 5px;
+        }
+
+        .flag-container {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+        }
+
+        /* Navigation styles */
+    /* Main navigation styles */
+.main-nav {
+  width: 100%;
+  background-color: #003366; /* Dark blue background */
+  font-family: Arial, sans-serif;
+}
+
+nav {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-item {
+  color: white;
+  text-decoration: none;
+  padding: 15px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+.nav-item:hover {
+  background-color: #004d99; /* Slightly lighter blue on hover */
+}
+
+/* Desktop and larger tablets */
+@media screen and (min-width: 992px) {
+  .nav-list {
+    justify-content: space-between;
+  }
+  
+  .nav-item {
+    flex: 1;
+  }
+}
+
+/* Medium devices (tablets) */
+@media screen and (max-width: 991px) {
+  .nav-item {
+    padding: 12px 8px;
+    font-size: 13px;
+    flex-basis: auto;
+  }
+}
+
+/* Small devices (landscape phones) */
+@media screen and (max-width: 768px) {
+  .nav-list {
+    flex-direction: column;
+  }
+  
+  .nav-item {
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Extra small devices (portrait phones) */
+@media screen and (max-width: 576px) {
+  .nav-item {
+    font-size: 12px;
+    padding: 10px 0;
+  }
+  
+  /* Mobile menu toggle (you would need to add a button in your HTML) */
+  .mobile-menu-button {
+    display: block;
+    width: 100%;
+    background-color: #002244;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  /* For JavaScript toggle functionality */
+  .nav-list.collapsed {
+    display: none;
+  }
+}
+
+
+    
+.custom-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 50;
+            width: 90%;
+            max-width: 500px;
+        }
+        .custom-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 40;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-top">
+                <div class="logo-container">
+                    <img src="https://daotao.hutech.edu.vn/MessageFile/banner.jpg" alt="HUTECH University" class="logo-image">
+                </div>
+            </div>
+            <div class="user-bar">
+                <div class="flag-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png" alt="English">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/1200px-Flag_of_Vietnam.svg.png" alt="Vietnamese">
+                </div>
+                Chào bạn Bùi Thị Tuyết Nhung (24820700027) | 
+                <a href="#">Xem thông báo</a> | 
+                <a href="#">Thoát</a>
+                <select style="margin-left: 10px;">
+                    <option>Font Unicode</option>
+                </select>
+                <a href="#">Thay Đổi Font</a>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="main-nav">
+            <nav>
+                <div class="nav-list">
+                    <a href="#" class="nav-item">TRANG CHỦ</a>
+                    <a href="dangkyhocphan.html" class="nav-item">ĐĂNG KÝ HỌC PHẦN</a>
+                    <a href="xemtkb.html" class="nav-item">XEM TKB</a>
+                    <a href="xemlichthi.html" class="nav-item">XEM LỊCH THI</a>
+                    <a href="xemhocphi.html" class="nav-item">XEM HỌC PHÍ</a>
+                    <a href="xemdiem.html" class="nav-item">XEM ĐIỂM</a>
+                    <a href="xemhptien" class="nav-item">XEM HP TIÊN QUYẾT</a>
+                    <a href="#" class="nav-item">SỬA TT CÁ NHÂN</a>
+                    <a href="#" class="nav-item">NỘP CHỨNG CHỈ</a>
+                </div>
+            </nav>
+        </div>
+            <div class="max-w-6xl mx-auto bg-white shadow-md">
+                <!-- Search Filters -->
+                <div class="p-4 border-b border-gray-300">
+              <!-- Main Content -->
+            <div class="p-4">
+                <!-- Thông tin thời khóa biểu -->
+                <div class="bg-blue-600 p-2 text-white font-bold">
+                    THÔNG TIN THỜI KHÓA BIỂU
+                </div>
+                
+                <div class="bg-white p-4 mb-4 border">
+                    <div class="flex flex-wrap items-center gap-2 mb-4">
+                        <div class="flex items-center">
+                            <span class="font-bold">Chọn học kỳ xem TKB</span>
+                        </div>
+                        <select class="border p-1">
+                            <option>Học kỳ 3 - Năm học 2024-2025</option>
+                        </select>
+                    </div>
+                    
+                    <div class="flex flex-wrap items-center gap-2 mb-4">
+                        <select class="border p-1">
+                            <option>TKB học kỳ cá nhân</option>
+                        </select>
+                        <select class="border p-1 flex-grow">
+                            <option>Chọn lớp học phần</option>
+                        </select>
+                        <button class="bg-white border p-1">In TKB</button>
+                    </div>
+                    
+                    <div class="text-sm text-gray-700 mb-4">
+                        ( Lưu ý: Mỗi ký tự trong dãy tuần 1234567890 đại diện cho 1 tuần lễ, ký tự đầu tiên đến điểm tà tuần thứ nhất của học kỳ (tuần 1) bắt đầu từ ngày 07/07/2025)
+                    </div>
+                    
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="flex items-center">
+                            <input type="radio" name="sort" id="sort-time">
+                            <label for="sort-time" class="ml-1">Sắp xếp theo thứ tiết</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" name="sort" id="sort-subject" checked>
+                            <label for="sort-subject" class="ml-1">Sắp xếp học phần</label>
+                        </div>
+                    </div>
+                    
+                    <!-- Schedule Table -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full border border-collapse">
+                            <thead>
+                                <tr class="table-header">
+                                    <th class="border p-2 text-left">Mã HP</th>
+                                    <th class="border p-2 text-left">Tên học phần</th>
+                                    <th class="border p-2 text-center">Nhóm HP</th>
+                                    <th class="border p-2 text-center">STC</th>
+                                    <th class="border p-2 text-center">KDK</th>
+                                    <th class="border p-2 text-center">TH</th>
+                                    <th class="border p-2 text-center">Thứ</th>
+                                    <th class="border p-2 text-center">Tiết BD</th>
+                                    <th class="border p-2 text-center">ST</th>
+                                    <th class="border p-2 text-center">Phòng</th>
+                                    <th class="border p-2 text-center">CBGD</th>
+                                    <th class="border p-2 text-center">Tuần</th>
+                                    <th class="border p-2 text-center">Tài liệu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border p-2">CAP211</td>
+                                    <td class="border p-2 text-blue-600 hover:underline cursor-pointer" onclick="showPopup('Nhập môn công nghệ thông tin')">Nhập môn công nghệ thông tin</td>
+                                    <td class="border p-2 text-center">05</td>
+                                    <td class="border p-2 text-center">3</td>
+                                    <td class="border p-2"></td>
+                                    <td class="border p-2 text-center">01</td>
+                                    <td class="border p-2 text-center">Sáu</td>
+                                    <td class="border p-2 text-center">2</td>
+                                    <td class="border p-2 text-center">5</td>
+                                    <td class="border p-2 text-center">E1-03.02/1</td>
+                                    <td class="border p-2"></td>
+                                    <td class="border p-2">21/07/2025-10/08/2025</td>
+                                    <td class="border p-2 text-center">
+                                        <svg class="inline-block w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+                                        </svg>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">CAP211</td>
+                                    <td class="border p-2 text-blue-600 hover:underline cursor-pointer" onclick="showPopup('Nhập môn công nghệ thông tin')">Nhập môn công nghệ thông tin</td>
+                                    <td class="border p-2 text-center">05</td>
+                                    <td class="border p-2 text-center">3</td>
+                                    <td class="border p-2"></td>
+                                    <td class="border p-2 text-center">01</td>
+                                    <td class="border p-2 text-center">Ba</td>
+                                    <td class="border p-2 text-center">2</td>
+                                    <td class="border p-2 text-center">5</td>
+                                    <td class="border p-2 text-center">E1-03.02/1</td>
+                                    <td class="border p-2"></td>
+                                    <td class="border p-2">21/07/2025-10/08/2025</td>
+                                    <td class="border p-2"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">POS107</td>
+                                    <td class="border p-2 text-blue-600 hover:underline cursor-pointer" onclick="showPopup('Lịch sử Đảng Cộng sản Việt Nam')">Lịch sử Đảng Cộng sản Việt Nam</td>
+                                    <td class="border p-2 text-center">40</td>
+                                    <td class="border p-2 text-center">2</td>
+                                    <td class="border p-2"></td>
+                                    <td class="border p-2"></td>
+                                    <td class="border p-2 text-center">Ba</td>
+                                    <td class="border p-2 text-center">7</td>
+                                    <td class="border p-2 text-center">5</td>
+                                    <td class="border p-2 text-center">E1-08.10</td>
+                                    <td class="border p-2"></td>
+                                    <td class="border p-2">07/07/2025-10/08/2025</td>
+                                    <td class="border p-2"></td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">PSY167</td>
+                                    <td class="border p-2 text-blue-600 hover:underline cursor-pointer" onclick="showPopup('Tâm lý học ứng dụng')">Tâm lý học ứng dụng</td>
+                                    <td class="border p-2 text-center">57</td>
+                                    <td class="border p-2 text-center">3</td>
+                                    <td class="border p-2"></td>
+                                    <td class="border p-2"></td>
+                                    <td class="border p-2 text-center">Tư</td>
+                                    <td class="border p-2 text-center">2</td>
+                                    <td class="border p-2 text-center">5</td>
+                                    <td class="border p-2 text-center">E1-08.14</td>
+                                    <td class="border p-2"></td>
+                                    <td class="border p-2">07/07/2025-10/08/2025</td>
+                                    <td class="border p-2"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Popup Overlay -->
+            <div id="overlay" class="custom-overlay" onclick="closePopup()"></div>
+            
+            <!-- Attendance Popup -->
+            <div id="popup" class="custom-popup bg-white rounded shadow-lg">
+                <div class="bg-gray-100 p-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <div>
+                            <a href="#" class="text-gray-500">Trang chủ</a> / 
+                            <a href="#" class="text-gray-500">Học vụ</a> / 
+                            <a href="#" class="text-gray-500">Lớp học...</a>
+                        </div>
+                        <button onclick="closePopup()" class="text-gray-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="text-xl font-bold">Lớp: <span id="class-title">Sinh học đại cương</span></div>
+                </div>
+                
+                <div class="p-4">
+                    <div class="flex border-b">
+                        <button class="py-2 px-4 font-medium border-b-2 border-transparent" onclick="showTab('announcements')">Thông báo</button>
+                        <button class="py-2 px-4 font-medium border-b-2 border-blue-500 text-blue-500" onclick="showTab('attendance')">Điểm danh</button>
+                    </div>
+                    
+                    <div id="attendance-content" class="mt-4">
+                        <div class="bg-white p-4 rounded border">
+                            <div class="text-red-500 font-medium mb-4">Tổng số buổi vắng: 0</div>
+                            
+                            <table class="w-full border-collapse">
+                                <thead>
+                                    <tr class="bg-blue-600 text-white">
+                                        <th class="p-2 text-left">Buổi học</th>
+                                        <th class="p-2 text-left">Tình trạng</th>
+                                        <th class="p-2 text-center">Chi tiết</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b">
+                                        <td class="p-2">Tiết 2 - 6, ngày 28/02/2025</td>
+                                        <td class="p-2 text-blue-500">Có mặt</td>
+                                        <td class="p-2 text-center"><button class="text-blue-500">Chi tiết</button></td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-2">Tiết 2 - 6, ngày 07/03/2025</td>
+                                       <td class="p-2 text-blue-500">Có mặt</td>
+                                        <td class="p-2 text-center"><button class="text-blue-500">Chi tiết</button></td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-2">Tiết 2 - 6, ngày 14/03/2025</td>
+                                       <td class="p-2 text-blue-500">Có mặt</td>
+                                        <td class="p-2 text-center"><button class="text-blue-500">Chi tiết</button></td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-2">Tiết 2 - 6, ngày 21/03/2025</td>
+                                       <td class="p-2 text-blue-500">Có mặt</td>
+                                        <td class="p-2 text-center"><button class="text-blue-500">Chi tiết</button></td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-2">Tiết 2 - 6, ngày 28/03/2025</td>
+                                       <td class="p-2 text-blue-500">Có mặt</td>
+                                        <td class="p-2 text-center"><button class="text-blue-500">Chi tiết</button></td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-2">Tiết 2 - 6, ngày 07/04/2025</td>
+                                        <td class="p-2 text-gray-500">Chưa điểm danh</td>
+                                        <td class="p-2 text-center"><button class="text-blue-500">Chi tiết</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div id="announcements-content" class="mt-4 hidden">
+                        <div class="bg-white p-4 rounded border">
+                            <p>Không có thông báo mới.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <script>
+                function showPopup(className) {
+                    document.getElementById('overlay').style.display = 'block';
+                    document.getElementById('popup').style.display = 'block';
+                    document.getElementById('class-title').textContent = className;
+                }
+                
+                function closePopup() {
+                    document.getElementById('overlay').style.display = 'none';
+                    document.getElementById('popup').style.display = 'none';
+                }
+                
+                function showTab(tabName) {
+                    if (tabName === 'attendance') {
+                        document.getElementById('attendance-content').classList.remove('hidden');
+                        document.getElementById('announcements-content').classList.add('hidden');
+                    } else {
+                        document.getElementById('attendance-content').classList.add('hidden');
+                        document.getElementById('announcements-content').classList.remove('hidden');
+                    }
+                }
+            </script>
+                </div>
+             </div>
+       
+    </div>
+</body>
+</html>

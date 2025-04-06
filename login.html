@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trường Đại Học Công Nghệ TP.HCM (HUTECH)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(to right, #009CD9, #0094CE);
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-logo {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .language-selector img {
+            width: 24px;
+            height: 16px;
+        }
+
+        .language-selector a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .content-container {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .login-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .page-title {
+            background-color: #f0f0f0;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group label {
+            width: 150px;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            max-width: 400px;
+        }
+
+        .forgot-password {
+            color: #009CD9;
+            margin-left: 160px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .btn-login {
+            background: linear-gradient(to right, #009CD9, #0094CE);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-left: auto;
+        }
+
+        .btn-login:hover {
+            background: linear-gradient(to right, #e06518, #e85928);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* News/Blog Section */
+        .news-section {
+            margin-top: 30px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #009CD9;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #009CD9;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .news-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 160px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .news-content {
+            padding: 15px;
+        }
+
+        .news-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .news-title a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .news-title a:hover {
+            color: #009CD9;
+        }
+
+        .news-excerpt {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #999;
+            font-size: 12px;
+        }
+
+        .read-more {
+            color: #009CD9;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background-color: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 30px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 0;
+        }
+
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #009CD9;
+        }
+
+        .copyright {
+            color: #666;
+            font-size: 12px;
+        }
+
+        @media (max-width: 1024px) {
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .form-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .form-group label {
+                width: 100%;
+                text-align: left;
+                margin-bottom: 5px;
+            }
+
+            .form-group input {
+                width: 100%;
+                max-width: none;
+            }
+
+            .forgot-password {
+                margin-left: 0;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img style="width: 20%;" src="image/logo CMYK-01.png" alt="">
+        <div class="language-selector">
+            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg"
+                    alt="English"></a>
+            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg"
+                    alt="Tiếng Việt"></a>
+            <a href="#">Chào bạn</a>
+            <a href="#">Đăng Nhập</a>
+            <select id="fontSelector">
+                <option value="unicode">Font Unicode</option>
+                <option value="vni">Font VNI</option>
+                <option value="tcvn3">Font TCVN3</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="content-container">
+            <div class="login-container">
+                <div class="page-title">TRANG CHỦ</div>
+                <div class="login-form">
+                    <a href="#" class="forgot-password">Quên mật khẩu!</a>
+                    <div class="form-group">
+                        <label for="username">Tên Đăng Nhập</label>
+                        <input type="text" id="username" value="
+                        DBTA120241301">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mật Khẩu</label>
+                        <input type="password" id="password" value="Bervipwa100%">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn-login" onclick="login()">Đăng Nhập</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-section">
+                <h2 class="section-title">TIN TỨC & THÔNG BÁO MỚI</h2>
+                <div class="news-grid">
+                    <!-- News Item 1 -->
+                    <div class="news-item">
+                        <div class="news-image">
+                            <img style="object-fit: cover; width: 110%;" src="https://file1.hutech.edu.vn/file/news/9597061743480706.jpg" alt="">
+                        </div>
+                        <div class="news-content">
+                            <h3 class="news-title"><a href="#">HUTECH Công Bố Chỉ Tiêu Tuyển Sinh Năm 2025</a></h3>
+                            <p class="news-excerpt">Trường Đại học Công nghệ TP.HCM (HUTECH) vừa công bố kế hoạch tuyển
+                                sinh đại học năm 2025 với nhiều ngành học mới đáp ứng nhu cầu xã hội.</p>
+                            <div class="news-meta">
+                                <span>06/04/2025</span>
+                                <a href="#" class="read-more">Xem thêm</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Item 2 -->
+                    <div class="news-item">
+                        <div class="news-image">
+                            <img style="object-fit: cover; width: 110%;" src="https://file1.hutech.edu.vn/file/news/5568571743411474.jpg" alt="">
+                        </div>
+                        <div class="news-content">
+                            <h3 class="news-title"><a href="#">HUTECH Ký Kết Hợp Tác Với Các Trường Đại Học Hàn Quốc</a>
+                            </h3>
+                            <p class="news-excerpt">HUTECH vừa ký kết thỏa thuận hợp tác với 5 trường đại học hàng đầu
+                                tại Hàn Quốc, mở ra cơ hội du học và trao đổi sinh viên.</p>
+                            <div class="news-meta">
+                                <span>04/04/2025</span>
+                                <a href="#" class="read-more">Xem thêm</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Item 3 -->
+                    <div class="news-item">
+                        <div class="news-image">
+                            <img style="object-fit: cover; width: 110%;" src="https://file1.hutech.edu.vn/file/news/211461743061083.jpg" alt="">
+                        </div>
+                        <div class="news-content">
+                            <h3 class="news-title"><a href="#">Hội Thảo Khoa Học Công Nghệ Thông Tin Và Trí Tuệ Nhân
+                                    Tạo</a></h3>
+                            <p class="news-excerpt">HUTECH tổ chức hội thảo khoa học về ứng dụng Trí tuệ nhân tạo trong
+                                giáo dục và sản xuất với sự tham gia của các chuyên gia hàng đầu.</p>
+                            <div class="news-meta">
+                                <span>01/04/2025</span>
+                                <a href="#" class="read-more">Xem thêm</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Item 4 -->
+                    <div class="news-item">
+                        <div class="news-image">
+                            <img style="object-fit: cover; width: 110%;" src="https://file1.hutech.edu.vn/file/news/9725881742974372.jpg" alt="">
+                        </div>
+                        <div class="news-content">
+                            <h3 class="news-title"><a href="#">HUTECH Trao Học Bổng Cho Sinh Viên Xuất Sắc Học Kỳ
+                                    1/2025</a></h3>
+                            <p class="news-excerpt">Trường Đại học Công nghệ TP.HCM vừa tổ chức lễ trao học bổng cho 200
+                                sinh viên có thành tích học tập và nghiên cứu xuất sắc.</p>
+                            <div class="news-meta">
+                                <span>29/03/2025</span>
+                                <a href="#" class="read-more">Xem thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-links">
+            <div>
+                <p>Copyright ©2009 Trường Đại Học Công Nghệ TP.HCM, Quản lý bởi</p>
+                <p>Thiết kế bởi cty Phần mềm Ánh Quân</p>
+            </div>
+            <div>
+                <a href="#">Trang Chủ</a> |
+                <a href="#">Đầu Trang</a> |
+                <a href="#">About</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Simple validation
+            if (!username || !password) {
+                alert('Vui lòng nhập đầy đủ thông tin đăng nhập!');
+                return;
+            }
+
+            // In a real application, you would send this to a server
+            // For this demo, we'll just show an alert
+            alert('Đăng nhập thành công! Đang chuyển hướng đến trang chủ...');
+
+            // Simulating redirect after successful login
+            // In a real application, this would be handled by the server response
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1500);
+        }
+
+        // Font selector functionality
+        document.getElementById('fontSelector').addEventListener('change', function () {
+            const selectedFont = this.value;
+            // In a real application, you would change the font here
+            console.log('Font changed to:', selectedFont);
+        });
+    </script>
+</body>
+
+</html>
