@@ -420,33 +420,74 @@
     </div>
 
     <script>
-        function login() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+       // Check if user is logged in when page loads
+function checkAuthentication() {
+    // Get login status from localStorage
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    
+    // If not on login page and not logged in, redirect to login page
+    const currentPage = window.location.pathname.split('/').pop();
+    if (currentPage !== 'login.html' && !isLoggedIn) {
+        window.location.href = 'login.html';
+        return false;
+    }
+    
+    // If on login page but already logged in, redirect to home page
+    if (currentPage === 'login.html' && isLoggedIn) {
+        window.location.href = 'index.html';
+        return true;
+    }
+    
+    return isLoggedIn;
+}
 
-            // Simple validation
-            if (!username || !password) {
-                alert('Vui lòng nhập đầy đủ thông tin đăng nhập!');
-                return;
-            }
+// Handle login form submission
+function login() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
-            // In a real application, you would send this to a server
-            // For this demo, we'll just show an alert
-            alert('Đăng nhập thành công! Đang chuyển hướng đến trang chủ...');
+    // Simple validation
+    if (!username || !password) {
+        alert('Vui lòng nhập đầy đủ thông tin đăng nhập!');
+        return;
+    }
 
-            // Simulating redirect after successful login
-            // In a real application, this would be handled by the server response
-            setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 1500);
-        }
+    // In a real application, you would verify credentials with a server
+    // For this demo, we'll use a simple check (replace with proper authentication)
+    if (username === 'admin' && password === 'password') {
+        // Save login state to localStorage
+        localStorage.setItem('isLoggedIn', 'true');
+        
+        alert('Đăng nhập thành công! Đang chuyển hướng đến trang chủ...');
+        
+        // Redirect after successful login
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 1500);
+    } else {
+        alert('Tên đăng nhập hoặc mật khẩu không chính xác!');
+    }
+}
 
-        // Font selector functionality
-        document.getElementById('fontSelector').addEventListener('change', function () {
-            const selectedFont = this.value;
-            // In a real application, you would change the font here
-            console.log('Font changed to:', selectedFont);
-        });
+// Handle logout
+function logout() {
+    localStorage.removeItem('isLoggedIn');
+    window.location.href = 'login.html';
+}
+
+// Font selector functionality
+if (document.getElementById('fontSelector')) {
+    document.getElementById('fontSelector').addEventListener('change', function () {
+        const selectedFont = this.value;
+        // In a real application, you would change the font here
+        console.log('Font changed to:', selectedFont);
+    });
+}
+
+// Check authentication when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    checkAuthentication();
+});
     </script>
 </body>
 
