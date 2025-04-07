@@ -295,18 +295,18 @@
 <body>
     <div class="header">
         <img style="width: 20%;" src="image/logo CMYK-01.png" alt="">
-       <!-- Modify the language selector div in the header to include logout link -->
-<div class="language-selector">
-    <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" alt="Tiếng Việt"></a>
-    <a href="#" class="user-greeting">Chào bạn <span class="user-name"></span></a>
-    <a href="#" class="login-link">Đăng Nhập</a>
-    <a href="#" class="logout-link" onclick="logout()" style="display:none;">Đăng Xuất</a>
-    <select id="fontSelector">
-        <option value="unicode">Font Unicode</option>
-        <option value="vni">Font VNI</option>
-        <option value="tcvn3">Font TCVN3</option>
-    </select>
-</div>
+        <!-- Modify the language selector div in the header to include logout link -->
+        <div class="language-selector">
+            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" alt="Tiếng Việt"></a>
+            <a href="#" class="user-greeting">Chào bạn <span class="user-name"></span></a>
+            <a href="#" class="login-link">Đăng Nhập</a>
+            <a href="#" class="logout-link" onclick="logout()" style="display:none;">Đăng Xuất</a>
+            <select id="fontSelector">
+                <option value="unicode">Font Unicode</option>
+                <option value="vni">Font VNI</option>
+                <option value="tcvn3">Font TCVN3</option>
+            </select>
+        </div>
     </div>
 
     <div class="main-content">
@@ -317,11 +317,11 @@
                     <a href="#" class="forgot-password">Quên mật khẩu!</a>
                     <div class="form-group">
                         <label for="username">Tên Đăng Nhập</label>
-                        <input type="text" id="username" value="DBTA120241301">
+                        <input type="text" id="username" placeholder="Nhập tên đăng nhập">
                     </div>
                     <div class="form-group">
                         <label for="password">Mật Khẩu</label>
-                        <input type="password" id="password" value="Bervipwa100%">
+                        <input type="password" id="password" placeholder="Nhập mật khẩu">
                     </div>
                     <div class="form-group">
                         <button class="btn-login" onclick="login()">Đăng Nhập</button>
@@ -418,106 +418,106 @@
     </div>
 
     <script>
-       // Add these functions to the existing script section or create a new script file
+        // Add these functions to the existing script section or create a new script file
 
-// Function to check if user is authenticated
-function isAuthenticated() {
-    return localStorage.getItem('isLoggedIn') === 'true';
-}
+        // Function to check if user is authenticated
+        function isAuthenticated() {
+            return localStorage.getItem('isLoggedIn') === 'true';
+        }
 
-// Middleware function to protect routes
-function authMiddleware() {
-    // Get current page path
-    const currentPath = window.location.pathname;
-    
-    // Skip authentication check for login page and public pages
-    const publicPages = ['/index.html', '/login.html', '/'];
-    const isPublicPage = publicPages.some(page => currentPath.endsWith(page));
-    
-    // If not authenticated and not on a public page, redirect to login
-    if (!isAuthenticated() && !isPublicPage) {
-        alert('Bạn cần đăng nhập để truy cập trang này!');
-        window.location.href = 'login.html'; // Redirect to login page
-        return false;
-    }
-    
-    return true;
-}
+        // Middleware function to protect routes
+        function authMiddleware() {
+            // Get current page path
+            const currentPath = window.location.pathname;
+            
+            // Skip authentication check for login page and public pages
+            const publicPages = ['/index.html', '/login.html', '/'];
+            const isPublicPage = publicPages.some(page => currentPath.endsWith(page));
+            
+            // If not authenticated and not on a public page, redirect to login
+            if (!isAuthenticated() && !isPublicPage) {
+                alert('Bạn cần đăng nhập để truy cập trang này!');
+                window.location.href = 'login.html'; // Redirect to login page
+                return false;
+            }
+            
+            return true;
+        }
 
-// Modify the existing login function to store authentication status
-function login() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+        // Modify the existing login function to store authentication status
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
 
-    // Simple validation
-    if (!username || !password) {
-        alert('Vui lòng nhập đầy đủ thông tin đăng nhập!');
-        return;
-    }
+            // Simple validation
+            if (!username || !password) {
+                alert('Vui lòng nhập đầy đủ thông tin đăng nhập!');
+                return;
+            }
 
-    // Here you would typically make an API call to verify credentials
-    // For this demo, we'll just check if username and password are not empty
-    if (username && password) {
-        // Store login status in localStorage
-        localStorage.setItem('isLoggedIn', 'true');
-        localStorage.setItem('username', username);
-        
-        alert('Đăng nhập thành công! Đang chuyển hướng đến trang chủ...');
-        
-        // Redirect to home page after successful login
-        setTimeout(() => {
-            window.location.href = 'login.html'; // Change this to your actual home page
-        }, 1500);
-    } else {
-        alert('Tên đăng nhập hoặc mật khẩu không đúng!');
-    }
-}
+            // Here you would typically make an API call to verify credentials
+            // For this demo, we'll just check if username and password are not empty
+            if (username && password) {
+                // Store login status in localStorage
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('username', username);
+                
+                alert('Đăng nhập thành công! Đang chuyển hướng đến trang chủ...');
+                
+                // Redirect to home page after successful login
+                setTimeout(() => {
+                    window.location.href = 'login.html'; // Change this to your actual home page
+                }, 1500);
+            } else {
+                alert('Tên đăng nhập hoặc mật khẩu không đúng!');
+            }
+        }
 
-// Function to logout
-function logout() {
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('username');
-    alert('Đăng xuất thành công!');
-    window.location.href = 'login.html';
-}
+        // Function to logout
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('username');
+            alert('Đăng xuất thành công!');
+            window.location.href = 'login.html';
+        }
 
-// Add this to each protected page to check authentication
-document.addEventListener('DOMContentLoaded', function() {
-    // Run middleware check
-    authMiddleware();
-    
-    // Update UI based on authentication status
-    updateAuthUI();
-});
-
-// Update UI elements based on auth status
-function updateAuthUI() {
-    const isLoggedIn = isAuthenticated();
-    const loginLinks = document.querySelectorAll('.login-link');
-    const logoutLinks = document.querySelectorAll('.logout-link');
-    const userNameElements = document.querySelectorAll('.user-name');
-    
-    // Update login/logout links visibility
-    if (loginLinks) {
-        loginLinks.forEach(link => {
-            link.style.display = isLoggedIn ? 'none' : 'inline-block';
+        // Add this to each protected page to check authentication
+        document.addEventListener('DOMContentLoaded', function() {
+            // Run middleware check
+            authMiddleware();
+            
+            // Update UI based on authentication status
+            updateAuthUI();
         });
-    }
-    
-    if (logoutLinks) {
-        logoutLinks.forEach(link => {
-            link.style.display = isLoggedIn ? 'inline-block' : 'none';
-        });
-    }
-    
-    // Update username display if logged in
-    if (isLoggedIn && userNameElements) {
-        const username = localStorage.getItem('username');
-        userNameElements.forEach(element => {
-            element.textContent = username;
-        });
-    }
-}
+
+        // Update UI elements based on auth status
+        function updateAuthUI() {
+            const isLoggedIn = isAuthenticated();
+            const loginLinks = document.querySelectorAll('.login-link');
+            const logoutLinks = document.querySelectorAll('.logout-link');
+            const userNameElements = document.querySelectorAll('.user-name');
+            
+            // Update login/logout links visibility
+            if (loginLinks) {
+                loginLinks.forEach(link => {
+                    link.style.display = isLoggedIn ? 'none' : 'inline-block';
+                });
+            }
+            
+            if (logoutLinks) {
+                logoutLinks.forEach(link => {
+                    link.style.display = isLoggedIn ? 'inline-block' : 'none';
+                });
+            }
+            
+            // Update username display if logged in
+            if (isLoggedIn && userNameElements) {
+                const username = localStorage.getItem('username');
+                userNameElements.forEach(element => {
+                    element.textContent = username;
+                });
+            }
+        }
     </script>
 </body>
 
