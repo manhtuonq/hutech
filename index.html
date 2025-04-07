@@ -297,7 +297,6 @@
         <img style="width: 20%;" src="image/logo CMYK-01.png" alt="">
        <!-- Modify the language selector div in the header to include logout link -->
 <div class="language-selector">
-    <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg" alt="English"></a>
     <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" alt="Tiếng Việt"></a>
     <a href="#" class="user-greeting">Chào bạn <span class="user-name"></span></a>
     <a href="#" class="login-link">Đăng Nhập</a>
@@ -318,8 +317,7 @@
                     <a href="#" class="forgot-password">Quên mật khẩu!</a>
                     <div class="form-group">
                         <label for="username">Tên Đăng Nhập</label>
-                        <input type="text" id="username" value="
-                        DBTA120241301">
+                        <input type="text" id="username" value="DBTA120241301">
                     </div>
                     <div class="form-group">
                         <label for="password">Mật Khẩu</label>
@@ -433,13 +431,13 @@ function authMiddleware() {
     const currentPath = window.location.pathname;
     
     // Skip authentication check for login page and public pages
-    const publicPages = ['/login.html', '/index.html', '/'];
+    const publicPages = ['/index.html', '/login.html', '/'];
     const isPublicPage = publicPages.some(page => currentPath.endsWith(page));
     
     // If not authenticated and not on a public page, redirect to login
     if (!isAuthenticated() && !isPublicPage) {
         alert('Bạn cần đăng nhập để truy cập trang này!');
-        window.location.href = 'index.html'; // Redirect to login page
+        window.location.href = 'login.html'; // Redirect to login page
         return false;
     }
     
@@ -468,7 +466,7 @@ function login() {
         
         // Redirect to home page after successful login
         setTimeout(() => {
-            window.location.href = 'index.html'; // Change this to your actual home page
+            window.location.href = 'login.html'; // Change this to your actual home page
         }, 1500);
     } else {
         alert('Tên đăng nhập hoặc mật khẩu không đúng!');
@@ -480,7 +478,7 @@ function logout() {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('username');
     alert('Đăng xuất thành công!');
-    window.location.href = 'index.html';
+    window.location.href = 'login.html';
 }
 
 // Add this to each protected page to check authentication
