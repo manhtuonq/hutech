@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HUTECH - Trường Đại học Công nghệ TP.HCM</title>
-    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <title>Trường Đại Học Công Nghệ TP.HCM (HUTECH)</title>
     <style>
         * {
             margin: 0;
@@ -14,745 +14,513 @@
         }
 
         body {
-            background-color: #fff;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(to right, #009CD9, #0094CE);
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-logo {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .language-selector img {
+            width: 24px;
+            height: 16px;
+        }
+
+        .language-selector a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .content-container {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .login-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .page-title {
+            background-color: #f0f0f0;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
             color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group label {
+            width: 150px;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            max-width: 400px;
+        }
+
+        .forgot-password {
+            color: #009CD9;
+            margin-left: 160px;
+            text-decoration: none;
             font-size: 14px;
         }
 
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
+        .forgot-password:hover {
+            text-decoration: underline;
         }
 
-        /* Header styles */
-       /* Reset some basic elements */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-}
-
-/* Header Styles */
-.header {
-  width: 100%;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.header-top {
-  padding: 10px 20px;
-  display: flex;
-  justify-content: center;
-  background-color: #fff;
-}
-
-.logo-container {
-  max-width: 100%;
-  text-align: center;
-}
-
-.logo-image {
-  max-width: 100%;
-  height: auto;
-}
-
-/* User bar styles */
-.user-bar {
-  background-color: #f5f5f5;
-  padding: 10px 20px;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  color: #333;
-}
-
-.flag-container {
-  display: flex;
-  align-items: center;
-  margin-right: 15px;
-}
-
-.flag-container img {
-  width: 24px;
-  height: auto;
-  margin-right: 5px;
-  border: 1px solid #ddd;
-}
-
-.user-bar a {
-  color: #0066cc;
-  text-decoration: none;
-  margin: 0 5px;
-}
-
-.user-bar a:hover {
-  text-decoration: underline;
-}
-
-.user-bar select {
-  padding: 2px 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  margin: 0 5px;
-}
-
-/* Responsive styles */
-@media screen and (max-width: 768px) {
-  .user-bar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-  }
-  
-  .flag-container {
-    margin-bottom: 10px;
-    width: 100%;
-  }
-  
-  .user-bar select,
-  .user-bar a {
-    margin: 5px 0;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .header-top {
-    padding: 5px;
-  }
-  
-  .user-bar {
-    font-size: 12px;
-  }
-  
-  .flag-container img {
-    width: 20px;
-  }
-  
-  .user-bar select {
-    width: 100%;
-    margin: 5px 0;
-  }
-}
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-image {
-            width: 100%;
-            height: auto;
-        }
-
-        .slogan {
-            color: #00a0e9;
-            font-style: italic;
-            font-size: 18px;
-            margin-left: 20px;
-        }
-
-        .campus-image {
-            width: 200px;
-            height: auto;
-        }
-
-        .user-bar {
-            background-color: #FF6600;
-            padding: 5px 10px;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
+        .btn-login {
+            background: linear-gradient(to right, #009CD9, #0094CE);
             color: white;
-            font-size: 13px;
-        }
-
-        .user-bar a {
-            color: white;
-            text-decoration: none;
-            margin-left: 5px;
-        }
-
-        .user-bar img {
-            width: 16px;
-            height: 11px;
-            margin-right: 5px;
-        }
-
-        .flag-container {
-            display: flex;
-            align-items: center;
-            margin-right: 10px;
-        }
-
-        /* Navigation styles */
-    /* Main navigation styles */
-.main-nav {
-  width: 100%;
-  background-color: #003366; /* Dark blue background */
-  font-family: Arial, sans-serif;
-}
-
-nav {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.nav-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.nav-item {
-  color: white;
-  text-decoration: none;
-  padding: 15px 12px;
-  font-size: 14px;
-  font-weight: bold;
-  text-align: center;
-  transition: background-color 0.3s;
-  white-space: nowrap;
-}
-
-.nav-item:hover {
-  background-color: #004d99; /* Slightly lighter blue on hover */
-}
-
-/* Desktop and larger tablets */
-@media screen and (min-width: 992px) {
-  .nav-list {
-    justify-content: space-between;
-  }
-  
-  .nav-item {
-    flex: 1;
-  }
-}
-
-/* Medium devices (tablets) */
-@media screen and (max-width: 991px) {
-  .nav-item {
-    padding: 12px 8px;
-    font-size: 13px;
-    flex-basis: auto;
-  }
-}
-
-/* Small devices (landscape phones) */
-@media screen and (max-width: 768px) {
-  .nav-list {
-    flex-direction: column;
-  }
-  
-  .nav-item {
-    width: 100%;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-}
-
-/* Extra small devices (portrait phones) */
-@media screen and (max-width: 576px) {
-  .nav-item {
-    font-size: 12px;
-    padding: 10px 0;
-  }
-  
-  /* Mobile menu toggle (you would need to add a button in your HTML) */
-  .mobile-menu-button {
-    display: block;
-    width: 100%;
-    background-color: #002244;
-    color: white;
-    border: none;
-    padding: 12px;
-    font-weight: bold;
-    text-align: center;
-    cursor: pointer;
-  }
-  
-  /* For JavaScript toggle functionality */
-  .nav-list.collapsed {
-    display: none;
-  }
-}
-
-        /* Content styles */
-        .content {
-            padding: 15px 0;
-        }
-
-        .section-header {
-            background: linear-gradient(to bottom, #6BB9F0, #3498DB);
-            color: white;
-            padding: 10px;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
             font-weight: bold;
-            border-radius: 3px 3px 0 0;
+            transition: all 0.3s ease;
+            margin-left: auto;
+        }
+
+        .btn-login:hover {
+            background: linear-gradient(to right, #e06518, #e85928);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* News/Blog Section */
+        .news-section {
+            margin-top: 30px;
         }
 
         .section-title {
-            background-color: #FFF3CD;
-            padding: 15px;
-            text-align: center;
+            font-size: 20px;
             font-weight: bold;
-            font-size: 16px;
-            border-bottom: 1px solid #FFE69C;
+            color: #009CD9;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #009CD9;
         }
 
-        /* Tables */
-        .info-table {
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .news-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-image {
             width: 100%;
-            border-collapse: collapse;
+            height: 160px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
         }
 
-        .info-table th {
-            background-color: #4A89DC;
-            color: white;
-            padding: 12px;
-            text-align: center;
-            border: 1px solid #3A79CC;
+        .news-content {
+            padding: 15px;
         }
 
-        .info-table td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            vertical-align: top;
-        }
-
-        .info-table tr:hover {
-            background-color: #f5f5f5;
-        }
-
-        .campus-list td:first-child {
-            width: 200px;
-        }
-
-        .campus-list td:nth-child(2) {
-            width: 100px;
-            text-align: center;
-        }
-
-        .schedule-table th:first-child {
-            width: 150px;
-        }
-
-        .schedule-table th:nth-child(2) {
-            width: 150px;
-        }
-
-        /* Date display */
-        .date-display {
-            padding: 10px;
-            color: #666;
-            font-style: italic;
-        }
-
-        /* Bullet points */
-        .bullet-point {
-            margin-right: 5px;
-        }
-
-        /* Stadium section */
-        .stadium-section {
-            margin-top: 20px;
-        }
-
-        /* Registration section */
-        .registration-section {
-            margin-top: 20px;
-        }
-
-        .registration-table th:first-child {
-            width: 50px;
-            text-align: center;
-        }
-
-        .registration-table th:nth-child(2) {
-            width: 300px;
-        }
-
-        .notice-row {
-            background-color: #4A89DC;
-            color: white;
-            text-align: center;
+        .news-title {
             font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 16px;
         }
 
-        .notice-row td {
-            padding: 12px;
+        .news-title a {
+            color: #333;
+            text-decoration: none;
         }
-        /* Additional styles for notice rows and information sections */
-.notice-row {
-    background-color: #4A89DC;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    padding: 12px;
-    margin-top: 5px;
-}
 
-.info-section {
-    margin-top: 15px;
-    padding: 10px;
-    border: 1px solid #ddd;
-}
+        .news-title a:hover {
+            color: #009CD9;
+        }
 
-.info-section ul {
-    list-style-type: none;
-    padding-left: 10px;
-}
+        .news-excerpt {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
 
-.info-section li {
-    margin-bottom: 8px;
-    position: relative;
-    padding-left: 20px;
-}
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #999;
+            font-size: 12px;
+        }
 
-.info-section li:before {
-    content: "• ";
-    position: absolute;
-    left: 0;
-    color: #333;
-}
+        .read-more {
+            color: #009CD9;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
 
-.info-section a {
-    color: #0066cc;
-    text-decoration: none;
-}
+        .read-more:hover {
+            text-decoration: underline;
+        }
 
-.info-section a:hover {
-    text-decoration: underline;
-}
+        .footer {
+            background-color: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 30px;
+        }
 
-/* Note section styling */
-.note-section {
-    margin-top: 15px;
-    border: 1px solid #ddd;
-}
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 0;
+        }
 
-.note-title {
-    background-color: #F0AD4E;
-    color: #fff;
-    text-align: center;
-    font-weight: bold;
-    padding: 10px;
-    font-size: 16px;
-}
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+        }
 
-.note-content {
-    padding: 15px;
-    background-color: #FFEED8;
-}
+        .footer-links a:hover {
+            color: #009CD9;
+        }
 
-.note-content p {
-    margin-bottom: 10px;
-}
+        .copyright {
+            color: #666;
+            font-size: 12px;
+        }
 
-.note-content a {
-    color: #0066cc;
-    text-decoration: none;
-}
+        @media (max-width: 1024px) {
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
 
-.note-content a:hover {
-    text-decoration: underline;
-}
+        @media (max-width: 768px) {
+            .form-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .form-group label {
+                width: 100%;
+                text-align: left;
+                margin-bottom: 5px;
+            }
+
+            .form-group input {
+                width: 100%;
+                max-width: none;
+            }
+
+            .forgot-password {
+                margin-left: 0;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <div class="header-top">
-                <div class="logo-container">
-                    <img src="https://daotao.hutech.edu.vn/MessageFile/banner.jpg" alt="HUTECH University" class="logo-image">
+    <div class="header">
+        <img style="width: 20%;" src="image/logo CMYK-01.png" alt="">
+       <!-- Modify the language selector div in the header to include logout link -->
+<div class="language-selector">
+    <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg" alt="English"></a>
+    <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" alt="Tiếng Việt"></a>
+    <a href="#" class="user-greeting">Chào bạn <span class="user-name"></span></a>
+    <a href="#" class="login-link">Đăng Nhập</a>
+    <a href="#" class="logout-link" onclick="logout()" style="display:none;">Đăng Xuất</a>
+    <select id="fontSelector">
+        <option value="unicode">Font Unicode</option>
+        <option value="vni">Font VNI</option>
+        <option value="tcvn3">Font TCVN3</option>
+    </select>
+</div>
+    </div>
+
+    <div class="main-content">
+        <div class="content-container">
+            <div class="login-container">
+                <div class="page-title">TRANG CHỦ</div>
+                <div class="login-form">
+                    <a href="#" class="forgot-password">Quên mật khẩu!</a>
+                    <div class="form-group">
+                        <label for="username">Tên Đăng Nhập</label>
+                        <input type="text" id="username" value="
+                        DBTA120241301">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mật Khẩu</label>
+                        <input type="password" id="password" value="Bervipwa100%">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn-login" onclick="login()">Đăng Nhập</button>
+                    </div>
                 </div>
             </div>
-            <div class="user-bar">
-                <div class="flag-container">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png" alt="English">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/1200px-Flag_of_Vietnam.svg.png" alt="Vietnamese">
+
+            <div class="news-section">
+                <h2 class="section-title">TIN TỨC & THÔNG BÁO MỚI</h2>
+                <div class="news-grid">
+                    <!-- News Item 1 -->
+                    <div class="news-item">
+                        <div class="news-image">
+                            <img style="object-fit: cover; width: 110%;" src="https://file1.hutech.edu.vn/file/news/9597061743480706.jpg" alt="">
+                        </div>
+                        <div class="news-content">
+                            <h3 class="news-title"><a href="#">HUTECH Công Bố Chỉ Tiêu Tuyển Sinh Năm 2025</a></h3>
+                            <p class="news-excerpt">Trường Đại học Công nghệ TP.HCM (HUTECH) vừa công bố kế hoạch tuyển
+                                sinh đại học năm 2025 với nhiều ngành học mới đáp ứng nhu cầu xã hội.</p>
+                            <div class="news-meta">
+                                <span>06/04/2025</span>
+                                <a href="#" class="read-more">Xem thêm</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Item 2 -->
+                    <div class="news-item">
+                        <div class="news-image">
+                            <img style="object-fit: cover; width: 110%;" src="https://file1.hutech.edu.vn/file/news/5568571743411474.jpg" alt="">
+                        </div>
+                        <div class="news-content">
+                            <h3 class="news-title"><a href="#">HUTECH Ký Kết Hợp Tác Với Các Trường Đại Học Hàn Quốc</a>
+                            </h3>
+                            <p class="news-excerpt">HUTECH vừa ký kết thỏa thuận hợp tác với 5 trường đại học hàng đầu
+                                tại Hàn Quốc, mở ra cơ hội du học và trao đổi sinh viên.</p>
+                            <div class="news-meta">
+                                <span>04/04/2025</span>
+                                <a href="#" class="read-more">Xem thêm</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Item 3 -->
+                    <div class="news-item">
+                        <div class="news-image">
+                            <img style="object-fit: cover; width: 110%;" src="https://file1.hutech.edu.vn/file/news/211461743061083.jpg" alt="">
+                        </div>
+                        <div class="news-content">
+                            <h3 class="news-title"><a href="#">Hội Thảo Khoa Học Công Nghệ Thông Tin Và Trí Tuệ Nhân
+                                    Tạo</a></h3>
+                            <p class="news-excerpt">HUTECH tổ chức hội thảo khoa học về ứng dụng Trí tuệ nhân tạo trong
+                                giáo dục và sản xuất với sự tham gia của các chuyên gia hàng đầu.</p>
+                            <div class="news-meta">
+                                <span>01/04/2025</span>
+                                <a href="#" class="read-more">Xem thêm</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Item 4 -->
+                    <div class="news-item">
+                        <div class="news-image">
+                            <img style="object-fit: cover; width: 110%;" src="https://file1.hutech.edu.vn/file/news/9725881742974372.jpg" alt="">
+                        </div>
+                        <div class="news-content">
+                            <h3 class="news-title"><a href="#">HUTECH Trao Học Bổng Cho Sinh Viên Xuất Sắc Học Kỳ
+                                    1/2025</a></h3>
+                            <p class="news-excerpt">Trường Đại học Công nghệ TP.HCM vừa tổ chức lễ trao học bổng cho 200
+                                sinh viên có thành tích học tập và nghiên cứu xuất sắc.</p>
+                            <div class="news-meta">
+                                <span>29/03/2025</span>
+                                <a href="#" class="read-more">Xem thêm</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                Chào bạn Bùi Thị Tuyết Nhung (24820700027) | 
-                <a href="#">Xem thông báo</a> | 
-                <a href="#">Thoát</a>
-                <select style="margin-left: 10px;">
-                    <option>Font Unicode</option>
-                </select>
-                <a href="#">Thay Đổi Font</a>
             </div>
         </div>
-
-        <!-- Main Navigation -->
-        <div class="main-nav">
-            <nav>
-                <div class="nav-list">
-                    <a href="#" class="nav-item">TRANG CHỦ</a>
-                    <a href="dangkyhocphan.html" class="nav-item">ĐĂNG KÝ HỌC PHẦN</a>
-                    <a href="xemtkb.html" class="nav-item">XEM TKB</a>
-                    <a href="xemlichthi.html" class="nav-item">XEM LỊCH THI</a>
-                    <a href="xemhocphi.html" class="nav-item">XEM HỌC PHÍ</a>
-                    <a href="xemdiem.html" class="nav-item">XEM ĐIỂM</a>
-                    <a href="xemhptien" class="nav-item">XEM HP TIÊN QUYẾT</a>
-                    <a href="#" class="nav-item">SỬA TT CÁ NHÂN</a>
-                    <a href="#" class="nav-item">NỘP CHỨNG CHỈ</a>
-                </div>
-            </nav>
-        </div>
-
-        <!-- Content -->
-        <div class="content">
-            <div class="section-header">
-                THÔNG TIN CHUNG
-            </div>
-            <div class="date-display">
-                (19/05/2020)
-            </div>
-
-            <div class="section-title">
-                ĐỊA CHỈ CÁC CƠ SỞ HỌC CỦA TRƯỜNG
-            </div>
-
-            <table class="info-table campus-list">
-                <thead>
-                    <tr>
-                        <th>TÊN CƠ SỞ</th>
-                        <th>KÝ HIỆU PHÒNG</th>
-                        <th>ĐỊA CHỈ</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="bullet-point">●</span> Sài Gòn Campus</td>
-                        <td>A, B, C</td>
-                        <td>475A Điện Biên Phủ, P.25, Q.Bình Thạnh, TP.HCM</td>
-                    </tr>
-                    <tr>
-                        <td><span class="bullet-point">●</span> Ung Văn Khiêm Campus</td>
-                        <td>U</td>
-                        <td>31/36 Ung Văn Khiêm, P.25, Q.Bình Thạnh, TP.HCM</td>
-                    </tr>
-                    <tr>
-                        <td><span class="bullet-point">●</span> Thu Duc Campus</td>
-                        <td>E</td>
-                        <td>Phân khu đào tạo E1, Khu Công Nghệ cao TP.HCM, Phường Hiệp Phú, TP. Thủ Đức, TP.HCM</td>
-                    </tr>
-                    <tr>
-                        <td><span class="bullet-point">●</span> Hitech Park Campus</td>
-                        <td>R</td>
-                        <td>Viện Công nghệ Cao Hutech, Lô E2B4, đường D1,Phường Long Thạnh Mỹ, khu Công Nghệ Cao, TP. Thủ Đức, TP.HCM.</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="section-title" style="margin-top: 20px;">
-                THỜI GIAN HỌC
-            </div>
-
-            <table class="info-table schedule-table">
-                <thead>
-                    <tr>
-                        <th>BUỔI HỌC</th>
-                        <th>CA HỌC</th>
-                        <th>THỜI GIAN HỌC</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td rowspan="2"><span class="bullet-point">●</span> Sáng</td>
-                        <td>Ca 1 (tiết 1,2,3)</td>
-                        <td>06g45' đến 09g00'</td>
-                    </tr>
-                    <tr>
-                        <td>Ca 2 (tiết 4,5,6)</td>
-                        <td>09g20' đến 11g35'</td>
-                    </tr>
-                    <tr>
-                        <td rowspan="2"><span class="bullet-point">●</span> Chiều</td>
-                        <td>Ca 3 (tiết 7,8,9)</td>
-                        <td>12g30' đến 14g45'</td>
-                    </tr>
-                    <tr>
-                        <td>Ca 4 (tiết 10,11,12)</td>
-                        <td>15g05' đến 17g20'</td>
-                    </tr>
-                    <tr>
-                        <td><span class="bullet-point">●</span> Tối</td>
-                        <td>Ca 5 (tiết 13,14,15)</td>
-                        <td>18g00' đến 20g15'</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="section-title stadium-section">
-                SÂN QUỐC PHÒNG
-            </div>
-
-            <table class="info-table">
-                <thead>
-                    <tr>
-                        <th>CƠ SỞ</th>
-                        <th>SÂN</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="bullet-point">●</span> Hitech Park Campus</td>
-                        <td>Bãi tập quốc phòng: BT.01-3, BT.02-3, BT.03-3, BT.04-3, BT.05-3, BT.06-3, BT.07-3, BT.08-3, BT.09-3, BT.10-4, BT.11-4, BT.12-4, BT.13-4,BT.14-4, BT.15-4, BT.16-4, BT.17-4, BT.18-4, BT.19-4, BT.20-4</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="section-title registration-section">
-                THÔNG BÁO VỀ VIỆC ĐĂNG KÝ HỌC PHẦN<br>
-                HỌC KỲ 3 - NĂM HỌC 2024 - 2025
-            </div>
-
-            <table class="info-table registration-table">
-                <thead>
-                    <tr>
-                        <th>ĐỢT</th>
-                        <th>ĐỐI TƯỢNG</th>
-                        <th>KHOA/VIỆN</th>
-                        <th>THỜI GIAN</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td><span class="bullet-point">●</span> Sinh viên ĐH chính quy <strong>Khóa 2022</strong></td>
-                        <td>Khoa học xã hội và Quan hệ công chúng, Hàn Quốc học, Trung Quốc học, Công nghệ thông tin, Kiến trúc - Mỹ thuật, Tiếng Anh, Luật, Hệ thống thông tin quản lý, Điều dưỡng - Xét nghiệm; Viện Kỹ thuật Hutech</td>
-                        <td>09h00 24/03 – 27/03/2025</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td></td>
-                        <td>Quản trị kinh doanh, Marketing - Kinh doanh quốc tế, Quản trị Du lịch - Nhà hàng - Khách sạn, Tài chính - Thương mại, Nhật Bản học, Xây dựng, Truyền thông và Thiết kế, Thú y - Chăn nuôi; Viện Khoa học ứng dụng Hutech, Âm nhạc và Nghệ Thuật</td>
-                        <td>26/03 – 29/03/2025</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><span class="bullet-point">●</span> Sinh viên ĐH chính quy <strong>Khóa 2023 & 2024</strong></td>
-                        <td>Khoa học xã hội và Quan hệ công chúng, Hàn Quốc học, Trung Quốc học, Công nghệ thông tin, Kiến trúc-Mỹ thuật, Tiếng Anh, Luật, Hệ thống thông tin quản lý, Điều dưỡng và Xét nghiệm; Viện Kỹ thuật Hutech</td>
-                        <td>28/03 – 31/03/2025</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td></td>
-                        <td>Quản trị kinh doanh, Marketing - Kinh doanh quốc tế, Quản trị Du lịch - Nhà hàng - Khách sạn, Tài chính - Thương mại, Nhật Bản học, Xây dựng, Truyền thông và Thiết kế, Thú y - Chăn nuôi; Viện Khoa học ứng dụng Hutech, Âm nhạc và Nghệ Thuật</td>
-                        <td>30/03 – 02/04/2025</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td><span class="bullet-point">●</span> Sinh viên ĐH chính quy từ <strong>Khóa 2022 & Khóa 2023 & Khóa 2024</strong></td>
-                        <td>Khoa Dược, Viện Công nghệ Việt - Nhật; sinh viên ĐH liên thông, ĐH văn bằng hai</td>
-                        <td>01/04 – 04/04/2025</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><span class="bullet-point">●</span> Sinh viên ĐH <strong>chính quy, ĐH liên thông, ĐH văn bằng 2</strong> (đăng ký điều chỉnh đối với các lớp học phần tự chọn bị hủy và đăng ký học phần bổ sung)</td>
-                        <td></td>
-                        <td>09h00 09/04 – 23h00 11/04/2025</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- Continuing from the notice row -->
-<div class="notice-row">
-    <p>Sinh viên cập nhật TKB cá nhân để xem kết quả ĐKHP vào lúc 09h00 ngày 09/04/2025.</p>
-</div>
-
-<!-- Important information section -->
-<div class="info-section">
-    <ul>
-        <li><strong>Thời gian hủy học phần:</strong> Từ 14/04/2025 – 27/04/2025 tại <a href="http://hocvudientu.hutech.edu.vn">hocvudientu.hutech.edu.vn</a>.</li>
-        <li><strong>Thời gian rút học phần:</strong> Từ 07/07/2025 – 13/07/2025 tại <a href="http://hocvudientu.hutech.edu.vn">hocvudientu.hutech.edu.vn</a>.</li>
-        <li><strong>Đóng học phí:</strong> Từ ngày 14/04/2025 – 28/04/2025(tất cả sinh viên đóng học phí qua ngân hàng).<br>
-        (Học phí học kỳ = Học phí chính khóa + Học phí học lại + Học phí học vượt)</li>
-    </ul>
-</div>
-
-<!-- Note section -->
-<div class="note-section">
-    <div class="note-title">LƯU Ý</div>
-    <div class="note-content">
-        <p>- Những học phần nào sinh viên đã học, miễn trừ hoặc không đúng chuyên ngành thì sinh viên có thể hủy online trong thời gian đăng ký học phần.</p>
-        <p>- Trường hợp sinh viên có nhu cầu học vượt, cần liên hệ Khoa/ Viện/ Trung tâm quản lý ngành để được tư vấn về chương trình đào tạo trước khi đăng ký học phần.</p>
-        <p>- Danh mục tự chọn học phần lớp ban ngày: sinh viên có thể liên hệ Khoa quản lý sinh viên để biết thêm chi tiết.</p>
-        <p>- Trong thời gian đăng ký học phần, các học phần mới đăng ký tạm thời chưa được tính học phí, học phí này sẽ được cập nhật sau khi kết thúc đợt đăng ký.</p>
-        <p>- Ngoài ra, sinh viên có thể xem chi tiết thông báo <a href="#">tại đây</a>.</p>
     </div>
-</div>
 
-<!-- Second registration announcement -->
-<div class="section-title registration-section">
-    THÔNG BÁO VỀ VIỆC ĐĂNG KÝ HỌC PHẦN<br>
-    HỌC KỲ PHỤ - HỌC KỲ 3 NĂM HỌC 2024 - 2025
-</div>
-
-<table class="info-table registration-table">
-    <thead>
-        <tr>
-            <th>ĐỢT</th>
-            <th>ĐỐI TƯỢNG</th>
-            <th>KHOA/VIỆN</th>
-            <th>THỜI GIAN</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>2</td>
-            <td><span class="bullet-point">●</span> Sinh viên ĐH chính quy từ <strong>Khóa 2021</strong> trở về trước</td>
-            <td></td>
-            <td>09h00 04/04 – 23h00 07/04/2025</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td><span class="bullet-point">●</span> Sinh viên ĐH chính quy, ĐH liên thông, ĐH văn bằng 2 (đăng ký điều chỉnh đối với các lớp học phần tự chọn bị hủy và đăng ký học phần bổ sung)</td>
-            <td></td>
-            <td>09h00 09/04 – 23h00 11/04/2025</td>
-        </tr>
-    </tbody>
-</table>
-
-<div class="notice-row">
-    <p>Sinh viên cập nhật TKB cá nhân để xem kết quả ĐKHP vào lúc 09h00 ngày 09/04/2025.</p>
-</div>
-
-<!-- Repeated information section -->
-<div class="info-section">
-    <ul>
-        <li><strong>Thời gian hủy học phần:</strong> Từ 14/04/2025 – 27/04/2025 tại <a href="http://hocvudientu.hutech.edu.vn">hocvudientu.hutech.edu.vn</a>.</li>
-        <li><strong>Đóng học phí:</strong> Từ ngày 14/04/2025 – 28/04/2025(tất cả sinh viên đóng học phí qua ngân hàng).<br>
-        (Học phí học kỳ = Học phí học lại + Học phí học bù + Học phí học vượt)</li>
-    </ul>
-</div>
-
-<!-- Repeated note section -->
-<div class="note-section">
-    <div class="note-title">LƯU Ý</div>
-    <div class="note-content">
-        <p>- Những học phần nào sinh viên đã học, miễn trừ hoặc không đúng chuyên ngành thì sinh viên có thể hủy online trong thời gian đăng ký học phần.</p>
-        <p>- Trường hợp sinh viên có nhu cầu học vượt, cần liên hệ Khoa/ Viện/ Trung tâm quản lý ngành để được tư vấn về chương trình đào tạo trước khi đăng ký học phần.</p>
-        <p>- Danh mục tự chọn học phần lớp ban ngày: sinh viên có thể liên hệ Khoa quản lý sinh viên để biết thêm chi tiết.</p>
-        <p>- Trong thời gian đăng ký học phần, các học phần mới đăng ký tạm thời chưa được tính học phí, học phí này sẽ được cập nhật sau khi kết thúc đợt đăng ký.</p>
-        <p>- Ngoài ra, sinh viên có thể xem chi tiết thông báo <a href="#">tại đây</a>.</p>
-    </div>
-</div>
-
-<!-- Equivalent courses section -->
-<div class="section-title">
-    DANH MỤC HỌC PHẦN TƯƠNG ĐƯƠNG,THAY THẾ
-</div>
-
-
+    <div class="footer">
+        <div class="footer-links">
+            <div>
+                <p>Copyright ©2009 Trường Đại Học Công Nghệ TP.HCM, Quản lý bởi</p>
+                <p>Thiết kế bởi cty Phần mềm Ánh Quân</p>
+            </div>
+            <div>
+                <a href="#">Trang Chủ</a> |
+                <a href="#">Đầu Trang</a> |
+                <a href="#">About</a>
+            </div>
         </div>
     </div>
+
+    <script>
+       // Add these functions to the existing script section or create a new script file
+
+// Function to check if user is authenticated
+function isAuthenticated() {
+    return localStorage.getItem('isLoggedIn') === 'true';
+}
+
+// Middleware function to protect routes
+function authMiddleware() {
+    // Get current page path
+    const currentPath = window.location.pathname;
+    
+    // Skip authentication check for login page and public pages
+    const publicPages = ['/login.html', '/index.html', '/'];
+    const isPublicPage = publicPages.some(page => currentPath.endsWith(page));
+    
+    // If not authenticated and not on a public page, redirect to login
+    if (!isAuthenticated() && !isPublicPage) {
+        alert('Bạn cần đăng nhập để truy cập trang này!');
+        window.location.href = 'index.html'; // Redirect to login page
+        return false;
+    }
+    
+    return true;
+}
+
+// Modify the existing login function to store authentication status
+function login() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Simple validation
+    if (!username || !password) {
+        alert('Vui lòng nhập đầy đủ thông tin đăng nhập!');
+        return;
+    }
+
+    // Here you would typically make an API call to verify credentials
+    // For this demo, we'll just check if username and password are not empty
+    if (username && password) {
+        // Store login status in localStorage
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('username', username);
+        
+        alert('Đăng nhập thành công! Đang chuyển hướng đến trang chủ...');
+        
+        // Redirect to home page after successful login
+        setTimeout(() => {
+            window.location.href = 'index.html'; // Change this to your actual home page
+        }, 1500);
+    } else {
+        alert('Tên đăng nhập hoặc mật khẩu không đúng!');
+    }
+}
+
+// Function to logout
+function logout() {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('username');
+    alert('Đăng xuất thành công!');
+    window.location.href = 'index.html';
+}
+
+// Add this to each protected page to check authentication
+document.addEventListener('DOMContentLoaded', function() {
+    // Run middleware check
+    authMiddleware();
+    
+    // Update UI based on authentication status
+    updateAuthUI();
+});
+
+// Update UI elements based on auth status
+function updateAuthUI() {
+    const isLoggedIn = isAuthenticated();
+    const loginLinks = document.querySelectorAll('.login-link');
+    const logoutLinks = document.querySelectorAll('.logout-link');
+    const userNameElements = document.querySelectorAll('.user-name');
+    
+    // Update login/logout links visibility
+    if (loginLinks) {
+        loginLinks.forEach(link => {
+            link.style.display = isLoggedIn ? 'none' : 'inline-block';
+        });
+    }
+    
+    if (logoutLinks) {
+        logoutLinks.forEach(link => {
+            link.style.display = isLoggedIn ? 'inline-block' : 'none';
+        });
+    }
+    
+    // Update username display if logged in
+    if (isLoggedIn && userNameElements) {
+        const username = localStorage.getItem('username');
+        userNameElements.forEach(element => {
+            element.textContent = username;
+        });
+    }
+}
+    </script>
 </body>
+
 </html>
