@@ -295,19 +295,19 @@
 <body>
     <div class="header">
         <img style="width: 20%;" src="image/logo CMYK-01.png" alt="">
-        <div class="language-selector">
-            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg"
-                    alt="English"></a>
-            <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg"
-                    alt="Tiếng Việt"></a>
-            <a href="#">Chào bạn</a>
-            <a href="#">Đăng Nhập</a>
-            <select id="fontSelector">
-                <option value="unicode">Font Unicode</option>
-                <option value="vni">Font VNI</option>
-                <option value="tcvn3">Font TCVN3</option>
-            </select>
-        </div>
+       <!-- Modify the language selector div in the header to include logout link -->
+<div class="language-selector">
+    <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg" alt="English"></a>
+    <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" alt="Tiếng Việt"></a>
+    <a href="#" class="user-greeting">Chào bạn <span class="user-name"></span></a>
+    <a href="#" class="login-link">Đăng Nhập</a>
+    <a href="#" class="logout-link" onclick="logout()" style="display:none;">Đăng Xuất</a>
+    <select id="fontSelector">
+        <option value="unicode">Font Unicode</option>
+        <option value="vni">Font VNI</option>
+        <option value="tcvn3">Font TCVN3</option>
+    </select>
+</div>
     </div>
 
     <div class="main-content">
@@ -420,28 +420,33 @@
     </div>
 
     <script>
-       // Check if user is logged in when page loads
-function checkAuthentication() {
-    // Get login status from localStorage
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
+       // Add these functions to the existing script section or create a new script file
+
+// Function to check if user is authenticated
+function isAuthenticated() {
+    return localStorage.getItem('isLoggedIn') === 'true';
+}
+
+// Middleware function to protect routes
+function authMiddleware() {
+    // Get current page path
+    const currentPath = window.location.pathname;
     
-    // If not on login page and not logged in, redirect to login page
-    const currentPage = window.location.pathname.split('/').pop();
-    if (currentPage !== 'login.html' && !isLoggedIn) {
-        window.location.href = 'login.html';
+    // Skip authentication check for login page and public pages
+    const publicPages = ['/login.html', '/index.html', '/'];
+    const isPublicPage = publicPages.some(page => currentPath.endsWith(page));
+    
+    // If not authenticated and not on a public page, redirect to login
+    if (!isAuthenticated() && !isPublicPage) {
+        alert('Bạn cần đăng nhập để truy cập trang này!');
+        window.location.href = 'index.html'; // Redirect to login page
         return false;
     }
     
-    // If on login page but already logged in, redirect to home page
-    if (currentPage === 'login.html' && isLoggedIn) {
-        window.location.href = 'index.html';
-        return true;
-    }
-    
-    return isLoggedIn;
+    return true;
 }
 
-// Handle login form submission
+// Modify the existing login function to store authentication status
 function login() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
@@ -452,42 +457,69 @@ function login() {
         return;
     }
 
-    // In a real application, you would verify credentials with a server
-    // For this demo, we'll use a simple check (replace with proper authentication)
-    if (username === 'admin' && password === 'password') {
-        // Save login state to localStorage
+    // Here you would typically make an API call to verify credentials
+    // For this demo, we'll just check if username and password are not empty
+    if (username && password) {
+        // Store login status in localStorage
         localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('username', username);
         
         alert('Đăng nhập thành công! Đang chuyển hướng đến trang chủ...');
         
-        // Redirect after successful login
+        // Redirect to home page after successful login
         setTimeout(() => {
-            window.location.href = 'index.html';
+            window.location.href = 'index.html'; // Change this to your actual home page
         }, 1500);
     } else {
-        alert('Tên đăng nhập hoặc mật khẩu không chính xác!');
+        alert('Tên đăng nhập hoặc mật khẩu không đúng!');
     }
 }
 
-// Handle logout
+// Function to logout
 function logout() {
     localStorage.removeItem('isLoggedIn');
-    window.location.href = 'login.html';
+    localStorage.removeItem('username');
+    alert('Đăng xuất thành công!');
+    window.location.href = 'index.html';
 }
 
-// Font selector functionality
-if (document.getElementById('fontSelector')) {
-    document.getElementById('fontSelector').addEventListener('change', function () {
-        const selectedFont = this.value;
-        // In a real application, you would change the font here
-        console.log('Font changed to:', selectedFont);
-    });
-}
-
-// Check authentication when page loads
+// Add this to each protected page to check authentication
 document.addEventListener('DOMContentLoaded', function() {
-    checkAuthentication();
+    // Run middleware check
+    authMiddleware();
+    
+    // Update UI based on authentication status
+    updateAuthUI();
 });
+
+// Update UI elements based on auth status
+function updateAuthUI() {
+    const isLoggedIn = isAuthenticated();
+    const loginLinks = document.querySelectorAll('.login-link');
+    const logoutLinks = document.querySelectorAll('.logout-link');
+    const userNameElements = document.querySelectorAll('.user-name');
+    
+    // Update login/logout links visibility
+    if (loginLinks) {
+        loginLinks.forEach(link => {
+            link.style.display = isLoggedIn ? 'none' : 'inline-block';
+        });
+    }
+    
+    if (logoutLinks) {
+        logoutLinks.forEach(link => {
+            link.style.display = isLoggedIn ? 'inline-block' : 'none';
+        });
+    }
+    
+    // Update username display if logged in
+    if (isLoggedIn && userNameElements) {
+        const username = localStorage.getItem('username');
+        userNameElements.forEach(element => {
+            element.textContent = username;
+        });
+    }
+}
     </script>
 </body>
 
