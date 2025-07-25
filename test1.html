@@ -1,281 +1,1099 @@
-<html lang="en" dir="ltr"><head>
-    <meta charset="utf-8">
-    <title>Thuê Xe Máy Phan Thiết</title>
-    <link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="image/favicon.png" type="image/x-icon"> 
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-    <link rel="stylesheet" href="css/nav.css" type="text/css">
-    <link rel="stylesheet" href="css/banner.css" type="text/css">
-    <link rel="stylesheet" href="css/section2.css" type="text/css">
-    <link rel="stylesheet" href="css/section3.css" type="text/css">
-    <link rel="stylesheet" href="css/footer-top.css" type="text/css">
-    <link rel="stylesheet" href="css/footer-bottom.css" type="text/css">
-    <link rel="stylesheet" href="css/testimonial.css">
-  </head>
+    <title>Trang Chủ - Cửa Hàng Thời Trang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <Style>
+      /* --- Cài đặt chung và Biến --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #333;
+    --secondary-color: #f4f4f4;
+    --accent-color: #007bff;
+    --text-color: #555;
+    --heading-color: #222;
+    --white-color: #fff;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--white-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--heading-color);
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--accent-color);
+    color: var(--white-color);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    border: 2px solid var(--accent-color);
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+}
+
+/* --- Header --- */
+.header {
+    background-color: var(--white-color);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 30px;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+}
+
+.main-nav ul li a:hover::after {
+    width: 100%;
+}
+
+.header-icons a {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-left: 20px;
+    transition: var(--transition);
+}
+
+.header-icons a:hover {
+    color: var(--accent-color);
+}
+
+/* --- Hero Section & Parallax --- */
+.hero-section {
+    height: 100vh;
+    background-image: url('images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white-color);
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay for readability */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.main-content {
+    padding-top: 80px; /* Adjust based on section spacing */
+}
+
+/* --- Product Section --- */
+.product-section {
+    padding: 80px 0;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: var(--white-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1);
+}
+
+.product-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    transform: translateY(100%);
+    transition: transform 0.4s ease-in-out;
+}
+
+.product-card:hover .product-overlay {
+    transform: translateY(0);
+}
+
+.product-overlay a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 8px 12px;
+    border: 1px solid var(--white-color);
+    border-radius: 5px;
+    transition: var(--transition);
+}
+
+.product-overlay a:hover {
+    background-color: var(--white-color);
+    color: var(--primary-color);
+}
+
+.product-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-name {
+    font-size: 1.2rem;
+    color: var(--heading-color);
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 1.1rem;
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+.sale-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #e74c3c;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    z-index: 2;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 10px;
+    font-weight: 400;
+}
+
+/* --- Flash Sale Section --- */
+/* --- Container "Khung Giờ Vàng" --- */
+.khung-gio-vang {
+    width: 100%;
+    max-width: 1200px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Header "Mở Màn Deal Nóng" --- */
+.mo-man-deal-nong {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.tieu-de-bung-no {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.ngon-lua-sale {
+    color: var(--primary-orange);
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.ngon-lua-sale .fa-bolt-lightning {
+    margin: 0 2px;
+}
+
+.dong-ho-ap-luc span {
+    background-color: #000;
+    color: #fff;
+    padding: 4px 6px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.xem-them-deal {
+    text-decoration: none;
+    color: var(--primary-orange);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+.xem-them-deal:hover {
+    color: #333;
+}
+.xem-them-deal .fa-chevron-right {
+    font-size: 12px;
+    margin-left: 4px;
+}
+
+
+/* --- "Vũ Đài Sản Phẩm" --- */
+.vu-dai-san-pham {
   
-  <body>
-    <!-- --------------NAVIGATION BAR------------ -->
-    <nav>
-      <div class="menu-icon">
-        <i class="fas fa-bars"></i>
-        <i class="fas fa-times hide"></i>
-      </div>
-      <div class="logo">
-        <span style="color: #000000">Cho thuê xe máy</span> Phan Thiết
-      </div>
-      <div class="nav-items">
-        <div class="social-icons-nav">
-          <a href="https://zalo.me/0336115747" target="_blank">
-            <img src="image/svg/zalo.svg" alt="zalo" class="zalo" width="24" height="24"></a>
-          <a href="https://www.instagram.com/thuexemay.pt_03366115747/profilecard/?igsh=MXZsZnlkcHo2NWM0Zg==" target="_blank">
-            <img src="image/svg/ig.svg" alt="ig" class="ig">
-            </a><a href="https://www.facebook.com/profile.php?id=61566921902796" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.tiktok.com/@thuexemayphanthiet.com" target="_blank"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.threads.net/@thuexemay.pt_03366115747?invite=0" target="_blank">
-              <img src="image/svg/threads.svg" alt="threads" class="threads">
-            </a>
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.item-ruc-lua {
+    background-color: #fff;
+    border: 1px solid #f0f0f0;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item-ruc-lua:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-orange);
+}
+
+.khung-hinh-nong-bong {
+    position: relative;
+    padding: 10px;
+}
+
+.khung-hinh-nong-bong img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.dau-an-gia-soc {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 212, 36, 0.9);
+    color: var(--primary-orange);
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.dau-an-gia-soc::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    border-width: 0 0 4px 4px;
+    border-style: solid;
+    border-color: transparent transparent var(--primary-orange) transparent;
+}
+
+
+.thong-tin-vat-pham {
+    padding: 10px 15px 15px;
+}
+
+.ten-vat-pham {
+    font-size: 14px;
+    color: var(--text-dark);
+    margin: 0 0 10px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.bang-gia-dot-chay {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.gia-huy-diet {
+    color: var(--primary-orange);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.gia-luc-dau {
+    color: var(--text-light);
+    text-decoration: line-through;
+    font-size: 13px;
+}
+
+/* --- Thanh "Sức Nóng" --- */
+.thanh-suc-nong {
+    width: 100%;
+}
+
+.thanh-nhiet-do {
+    background-color: var(--light-orange);
+    border-radius: 10px;
+    height: 20px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.thanh-nhiet-do span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+.thanh-nhiet-do .fa-fire {
+    color: #FFD700;
+}
+
+.cot-lua {
+    background: linear-gradient(to right, #EE4D2D, #FF6A00);
+    height: 100%;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+
+/* --- Responsive cho màn hình nhỏ --- */
+@media (max-width: 992px) {
+    .vu-dai-san-pham {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .mo-man-deal-nong {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .vu-dai-san-pham {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .ngon-lua-sale {
+        font-size: 18px;
+    }
+    .dong-ho-ap-luc span {
+        font-size: 14px;
+    }
+}
+
+/* Note: A real carousel needs JavaScript for controls and sliding. */
+/* This CSS provides basic horizontal layout. */
+.carousel .product-grid {
+    display: grid;
+    /* Adjust for horizontal scroll if you don't use JS */
+    grid-auto-flow: column; 
+    grid-auto-columns: minmax(280px, 1fr);
+    overflow-x: auto;
+    padding-bottom: 20px; /* for scrollbar */
+}
+.carousel {
+    overflow: hidden;
+}
+
+
+/* --- About Us Section --- */
+.about-us-section {
+    padding: 80px 0;
+}
+.about-us-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.about-image {
+    flex: 1;
+}
+.about-image img {
+    width: 100%;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+.about-text {
+    flex: 1.2;
+}
+.about-text h2 {
+    text-align: left;
+}
+.about-text h2::after {
+    left: 0;
+    transform: none;
+}
+.about-text p {
+    margin-bottom: 20px;
+}
+
+/* --- Testimonials Section --- */
+.testimonials-section {
+    padding: 80px 0;
+    background-color: var(--secondary-color);
+}
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.testimonial-card {
+    background: var(--white-color);
+    padding: 30px;
+    text-align: center;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+.testimonial-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+.testimonial-author {
+    font-weight: 600;
+    color: var(--heading-color);
+}
+
+/* --- News Section --- */
+.news-section {
+    padding: 80px 0;
+}
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.news-card {
+    background: var(--white-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+.news-card:hover {
+     transform: translateY(-10px);
+}
+.news-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.news-content {
+    padding: 25px;
+}
+.news-category {
+    display: inline-block;
+    padding: 5px 10px;
+    background: var(--accent-color);
+    color: var(--white-color);
+    font-size: 0.8rem;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+.news-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--heading-color);
+}
+.news-content a {
+    text-decoration: none;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+.news-content a:hover i {
+    transform: translateX(5px);
+}
+.news-content i {
+    transition: var(--transition);
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    padding: 80px 0;
+    background: var(--secondary-color);
+}
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.contact-form .form-group {
+    display: flex;
+    gap: 20px;
+}
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: 'Montserrat', sans-serif;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+.contact-form .btn {
+    align-self: center;
+    cursor: pointer;
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--primary-color);
+    color: #ccc;
+    padding: 60px 0 0;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    padding-bottom: 40px;
+}
+.footer-col h3 {
+    color: var(--white-color);
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+.footer-col p {
+    margin-bottom: 10px;
+}
+.footer-col ul {
+    list-style: none;
+}
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+.footer-col ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: var(--transition);
+}
+.footer-col ul li a:hover {
+    color: var(--white-color);
+    padding-left: 5px;
+}
+.social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #444;
+    color: var(--white-color);
+    border-radius: 50%;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 40px;
+    transition: var(--transition);
+}
+.social-icons a:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+.footer-bottom {
+    border-top: 1px solid #444;
+    padding: 20px 0;
+    text-align: center;
+}
+.footer-bottom p {
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 992px) {
+    .about-us-content {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+    }
+    .main-nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .main-nav ul li {
+        margin: 5px 15px;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .contact-form .form-group {
+        flex-direction: column;
+    }
+}
+    </Style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">MyStore</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home">Trang Chủ</a></li>
+                    <li><a href="#products">Sản Phẩm</a></li>
+                    <li><a href="#about">Về Chúng Tôi</a></li>
+                    <li><a href="#news">Tin Tức</a></li>
+                    <li><a href="#contact">Liên Hệ</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#"><i class="fas fa-user"></i></a>
+                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            </div>
         </div>
-        <li><a href="#section2-list">Danh sách xe</a></li>
-        <li><a href="#container1-contact">Liên hệ</a></li>
-        <!-- <li><a href="#">FAQs</a></li> -->
-      </div>
-      <!-- <a href="#" class="login"><i class="fa fa-user-circle" aria-hidden="true"></i></a>
-      <div class="search-icon">
-        <span class="fas fa-search"></span></div>
-      <div class="cancel-icon">
-        <span class="fas fa-times"></span></div>
-      <form action="#">
-        <input type="search" class="search-data" placeholder="Tìm kiếm" required>
-        <button type="submit" class="fas fa-search"></button>
-      </form> -->
-    </nav>
-    <!-- --------------NAVIGATION BAR------------ -->
-  
-    <!---------------------Banner---------------------->
-    <section class="banner">
-      <img src="image/banner.png" class="fitbg" alt="">
+    </header>
+
+    <section id="home" class="hero-section parallax">
+        <div class="hero-content">
+            <h1>Bộ Sưu Tập Mùa Hè 2025</h1>
+            <p>Khám phá những xu hướng thời trang mới nhất và độc đáo nhất.</p>
+            <a href="#products" class="btn">Mua Ngay</a>
+        </div>
     </section>
-    <!-- ------------------Banner---------------------->
-  
-    <!------------------section2------------------------->
-  
-    <section class="section2" id="section2-list">
-      <!-- <h2 style="color: #F2C2CF">
-        THUÊ XE CHƯA BAO GIỜ ĐƠN GIẢN ĐẾN THẾ
-      </h2>
-      <br>
-      <div class="qr-code">
-        <img src="image/qr.jpg" alt="">
-      </div>
-      <br>
-      <h2 style="color: #F2C2CF">
-        QUÉT MÃ ĐỂ ĐĂNG KÍ THUÊ XE
-      </h2> -->
-      <h2 style="color: #eeeeee">
-        Khám phá Phan Thiết tự do cùng
-        <span style="color: #a63f52">Fino 110</span>
-      </h2>
-      <p>
-        Bạn đang tìm kiếm một phương tiện di chuyển linh hoạt để khám phá vẻ đẹp
-        hoang sơ của Phan Thiết? Fino 110 sẽ là người bạn đồng hành lý tưởng của
-        bạn. Với dòng xe chủ đạo là Fino 110, thiết kế nhỏ gọn, xinh xắn, phù
-        hợp với mọi đối tượng, đặc biệt là các bạn nữ yêu thích chụp ảnh. Xe
-        đẹp, chất lượng: Tất cả xe đều được bảo dưỡng thường xuyên, đảm bảo hoạt
-        động ổn định và an toàn trong suốt chuyến đi. Giao nhận nhanh chóng:
-        Chúng tôi giao xe tận nơi theo yêu cầu của khách hàng, giúp bạn tiết
-        kiệm thời gian và công sức.
-      </p>
-      <div class="container">
-        <div class="card">
-          <div class="imgBx">
-            <img src="image/bike/10715a5a8105385b611437.jpg" alt="">
+
+    <main class="main-content">
+        <section id="products" class="product-section container">
+            <h2 class="section-title">Sản Phẩm Nổi Bật</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product1.jpg" alt="Sản phẩm 1">
+                        <div class="product-overlay">
+                            <a href="#" class="btn-quick-view">Xem Nhanh</a>
+                            <a href="#" class="btn-add-to-cart">Thêm vào giỏ</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Áo Sơ Mi Lụa</h3>
+                        <p class="product-price">750.000₫</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product2.jpg" alt="Sản phẩm 2">
+                        <div class="product-overlay">
+                            <a href="#" class="btn-quick-view">Xem Nhanh</a>
+                            <a href="#" class="btn-add-to-cart">Thêm vào giỏ</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Quần Jeans Slim-fit</h3>
+                        <p class="product-price">1.200.000₫</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product3.jpg" alt="Sản phẩm 3">
+                        <div class="product-overlay">
+                            <a href="#" class="btn-quick-view">Xem Nhanh</a>
+                            <a href="#" class="btn-add-to-cart">Thêm vào giỏ</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Váy Hoa Mùa Hè</h3>
+                        <p class="product-price">980.000₫</p>
+                    </div>
+                </div>
+                 <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product4.jpg" alt="Sản phẩm 4">
+                        <div class="product-overlay">
+                            <a href="#" class="btn-quick-view">Xem Nhanh</a>
+                            <a href="#" class="btn-add-to-cart">Thêm vào giỏ</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Giày Sneaker Da</h3>
+                        <p class="product-price">2.500.000₫</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+      
+
+        <section style="margin-left: 130px;" class="khung-gio-vang">
+          <div class="mo-man-deal-nong">
+              <div class="tieu-de-bung-no">
+                  <span class="ngon-lua-sale">F<i class="fa-solid fa-bolt-lightning"></i>ASH SALE</span>
+                  <div class="dong-ho-ap-luc">
+                      <span>00</span>:<span>14</span>:<span>51</span>
+                  </div>
+              </div>
+              <a href="#" class="xem-them-deal">Xem tất cả <i class="fa-solid fa-chevron-right"></i></a>
           </div>
-  
-          <div class="content2">
-            <h2>Cho thuê xe máy Phan Thiết</h2>
-            <h3>150.000 VNĐ</h3>
-            <p>Thuê theo ngày: 150.000 VNĐ</p>
-            <br>
-            <hr>
-            <p>Thuê theo tháng: 90.000 VNĐ</p>
+      
+          <div class="vu-dai-san-pham">
+              <div class="item-ruc-lua">
+                  <div class="khung-hinh-nong-bong">
+                      <img src="https://handmade-beauty.com/cdn/shop/files/removedor.jpg?v=1740545679&width=480" alt="WordPress Pennant">
+                      <span class="dau-an-gia-soc">-20%</span>
+                  </div>
+                  <div class="thong-tin-vat-pham">
+                      <p class="ten-vat-pham">WordPress Pennant</p>
+                      <div class="bang-gia-dot-chay">
+                          <span class="gia-huy-diet">80,000₫</span>
+                          <span class="gia-luc-dau">100,000₫</span>
+                      </div>
+                      <div class="thanh-suc-nong">
+                          <div class="thanh-nhiet-do">
+                              <span><i class="fa-solid fa-fire"></i> Đã bán 25 / 50</span>
+                              <div class="cot-lua" style="width: 50%;"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+      
+              <div class="item-ruc-lua">
+                  <div class="khung-hinh-nong-bong">
+                      <img src="https://handmade-beauty.com/cdn/shop/files/TOPCOATSUNDRY.jpg?v=1740545663&width=480" alt="Single">
+                      <span class="dau-an-gia-soc">-34%</span>
+                  </div>
+                  <div class="thong-tin-vat-pham">
+                      <p class="ten-vat-pham">Single</p>
+                      <div class="bang-gia-dot-chay">
+                          <span class="gia-huy-diet">20,000₫</span>
+                          <span class="gia-luc-dau">30,000₫</span>
+                      </div>
+                      <div class="thanh-suc-nong">
+                          <div class="thanh-nhiet-do">
+                              <span><i class="fa-solid fa-fire"></i> Đã bán 8 / 50</span>
+                              <div class="cot-lua" style="width: 16%;"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+      
+              <div class="item-ruc-lua">
+                  <div class="khung-hinh-nong-bong">
+                      <img src="https://handmade-beauty.com/cdn/shop/products/HMBESMALTEFLORESSILUETA.jpg?v=1603752616&width=480" alt="Long Sleeve Tee">
+                      <span class="dau-an-gia-soc">-0%</span>
+                  </div>
+                  <div class="thong-tin-vat-pham">
+                      <p class="ten-vat-pham">Long Sleeve Tee</p>
+                      <div class="bang-gia-dot-chay">
+                          <span class="gia-huy-diet">200,000₫</span>
+                          <span class="gia-luc-dau">200,000₫</span>
+                      </div>
+                      <div class="thanh-suc-nong">
+                           <div class="thanh-nhiet-do">
+                              <span><i class="fa-solid fa-fire"></i> Sắp cháy hàng</span>
+                              <div class="cot-lua" style="width: 95%;"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+      
+              <div class="item-ruc-lua">
+                  <div class="khung-hinh-nong-bong">
+                      <img src="https://handmade-beauty.com/cdn/shop/products/EGGPLANTMANOS.jpg?v=1740546822&width=480" alt="Polo">
+                      <span class="dau-an-gia-soc">-10%</span>
+                  </div>
+                  <div class="thong-tin-vat-pham">
+                      <p class="ten-vat-pham">Polo</p>
+                      <div class="bang-gia-dot-chay">
+                          <span class="gia-huy-diet">18,000₫</span>
+                          <span class="gia-luc-dau">20,000₫</span>
+                      </div>
+                      <div class="thanh-suc-nong">
+                           <div class="thanh-nhiet-do">
+                              <span><i class="fa-solid fa-fire"></i> Đã bán 0 / 50</span>
+                              <div class="cot-lua" style="width: 0%;"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+      
+              <div class="item-ruc-lua">
+                  <div class="khung-hinh-nong-bong">
+                      <img src="https://i.imgur.com/Y8Gq85j.png" alt="Album">
+                      <span class="dau-an-gia-soc">-0%</span>
+                  </div>
+                  <div class="thong-tin-vat-pham">
+                      <p class="ten-vat-pham">Album</p>
+                      <div class="bang-gia-dot-chay">
+                          <span class="gia-huy-diet">150,000₫</span>
+                          <span class="gia-luc-dau">150,000₫</span>
+                      </div>
+                      <div class="thanh-suc-nong">
+                           <div class="thanh-nhiet-do">
+                              <span><i class="fa-solid fa-fire"></i> Đã bán 40 / 50</span>
+                              <div class="cot-lua" style="width: 80%;"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
           </div>
+      </section>
+        
+        <section id="about" class="about-us-section container">
+            <div class="about-us-content">
+                <div class="about-image">
+                    <img src="images/about-us.jpg" alt="Về chúng tôi">
+                </div>
+                <div class="about-text">
+                    <h2 class="section-title">Về MyStore</h2>
+                    <p>MyStore được thành lập với niềm đam mê mang đến những sản phẩm thời trang chất lượng cao, cập nhật xu hướng và thể hiện phong cách cá nhân của bạn. Chúng tôi tin rằng thời trang không chỉ là quần áo, mà còn là cách bạn kể câu chuyện về chính mình.</p>
+                    <p>Với đội ngũ tận tâm và quy trình chọn lọc sản phẩm kỹ lưỡng, chúng tôi cam kết mang đến trải nghiệm mua sắm tuyệt vời nhất cho khách hàng.</p>
+                    <a href="#" class="btn">Xem Thêm</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials-section">
+             <div class="container">
+                <h2 class="section-title">Khách Hàng Nói Gì Về Chúng Tôi</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <img src="images/avatar1.jpg" alt="Khách hàng 1" class="testimonial-avatar">
+                        <p class="testimonial-text">"Chất lượng sản phẩm tuyệt vời, giao hàng nhanh. Mình rất hài lòng và chắc chắn sẽ quay lại ủng hộ shop!"</p>
+                        <h4 class="testimonial-author">- Minh Anh</h4>
+                    </div>
+                     <div class="testimonial-card">
+                        <img src="images/avatar2.jpg" alt="Khách hàng 2" class="testimonial-avatar">
+                        <p class="testimonial-text">"Dịch vụ chăm sóc khách hàng rất chuyên nghiệp. Các bạn nhân viên tư vấn nhiệt tình, giúp mình chọn được bộ đồ ưng ý."</p>
+                        <h4 class="testimonial-author">- Trần Hoàng</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="news" class="news-section container">
+            <h2 class="section-title">Tin Tức & Xu Hướng</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <img src="images/news1.jpg" alt="Tin tức 1">
+                    <div class="news-content">
+                        <span class="news-category">Thời Trang</span>
+                        <h3>5 Xu Hướng Thời Trang Công Sở Bạn Không Nên Bỏ Lỡ</h3>
+                        <a href="#">Đọc Thêm <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <img src="images/news2.jpg" alt="Tin tức 2">
+                    <div class="news-content">
+                        <span class="news-category">Mẹo Hay</span>
+                        <h3>Bí Quyết Phối Đồ "Ton-sur-ton" Sành Điệu Như Fashionista</h3>
+                        <a href="#">Đọc Thêm <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                 <div class="news-card">
+                    <img src="images/news3.jpg" alt="Tin tức 3">
+                    <div class="news-content">
+                        <span class="news-category">Sự Kiện</span>
+                        <h3>MyStore Ra Mắt Bộ Sưu Tập Thu-Đông 2025</h3>
+                        <a href="#">Đọc Thêm <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Liên Hệ Với Chúng Tôi</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Họ và Tên" required>
+                        <input type="email" placeholder="Email của bạn" required>
+                    </div>
+                    <textarea placeholder="Nội dung tin nhắn..." rows="6" required></textarea>
+                    <button type="submit" class="btn">Gửi Tin Nhắn</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3>MyStore</h3>
+                <p>Địa chỉ: 123 Đường ABC, Quận 1, TP. Hồ Chí Minh</p>
+                <p>Email: support@mystore.com</p>
+                <p>Hotline: 1900 1234</p>
+            </div>
+            <div class="footer-col">
+                <h3>Về Chúng Tôi</h3>
+                <ul>
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Tuyển dụng</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Điều khoản sử dụng</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Hỗ Trợ Khách Hàng</h3>
+                <ul>
+                    <li><a href="#">Hướng dẫn mua hàng</a></li>
+                    <li><a href="#">Chính sách đổi trả</a></li>
+                    <li><a href="#">Câu hỏi thường gặp</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Kết Nối Với Chúng Tôi</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
         </div>
-        <div class="card">
-          <div class="imgBx">
-            <img src="image/bike/19ab371aef45561b0f5472.jpg" alt="">
-          </div>
-  
-          <div class="content2">
-            <h2>Cho thuê xe máy Phan Thiết</h2>
-            <h3>150.000 VNĐ</h3>
-            <p>Thuê theo ngày: 150.000 VNĐ</p>
-            <br>
-            <hr>
-            <p>Thuê theo tháng: 90.000 VNĐ</p>
-          </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MyStore. All Rights Reserved.</p>
         </div>
-        <div class="card">
-          <div class="imgBx">
-            <img src="image/bike/1ce04f2f97702e2e776173.jpg" alt="">
-          </div>
-  
-          <div class="content2">
-            <h2>Cho thuê xe máy Phan Thiết</h2>
-            <h3>150.000 VNĐ</h3>
-            <p>Thuê theo ngày: 150.000 VNĐ</p>
-            <br>
-            <hr>
-            <p>Thuê theo tháng: 90.000 VNĐ</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!------------------section2------------------------->
-    <!------------------section3------------------------->
-    <div class="container-2">
-      <h1>THỦ TỤC THUÊ XE</h1>
-      <div class="steps">
-        <div class="step">
-          <img src="image/svg/camping.svg" alt="Đặt xe">
-          <h2>1. ĐẶT XE</h2>
-          <p>
-            Truy cập website thuexemayphanthiet.com và liên hệ chúng tôi qua
-            Hotline, zalo, messenger, mail để chọn xe, thời gian, địa điểm giao
-            nhận xe.
-          </p>
-        </div>
-        <div class="step">
-          <img src="image/svg/contract.svg" alt="Hợp đồng">
-          <h2>2. HỢP ĐỒNG</h2>
-          <p>
-            Kiểm tra, đối chiếu CCCD và bằng lái xe, thanh toán trước tiền xe -&gt; Kí
-            hợp đồng giao nhận xe.
-          </p>
-        </div>
-        <div class="step">
-          <img src="image/svg/motobike.svg" alt="Nhận xe">
-          <h2>3. NHẬN XE</h2>
-          <p>
-            Bàn giao xe cho bạn, bao gồm: xe, chìa khóa xe, Cà vẹt photo (hình
-            chụp), Bảo hiểm xe, 2 mũ bảo hiểm, 1 áo mưa cánh dơi
-          </p>
-        </div>
-        <div class="step">
-          <img src="image/svg/return.svg" alt="Trả xe">
-          <h2>4. TRẢ XE</h2>
-          <p>
-            Chúng tôi sẽ gửi lại giấy tờ và tiền thế chân đầy đủ cho bạn, nếu xe
-            của chung tôi không bị hư hại. Đừng quên ghé thăm chúng tôi trong
-            những lần sau.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!-- ------------------section3------------------------- -->
-  
-    <!-- ---------------------testimonial------------------------------ -->
-    <div class="wrapper">
-      <div class="testimonial">
-        <div class="item">
-          <div class="name">Bạn Hoàng Trà My</div>
-          <div class="content3">
-            <h1><i class="fas fa-quote-left"></i></h1>
-            <p>
-              Với thiết kế nhỏ gọn, đường nét mềm mại, nó không chỉ là người bạn
-              đồng hành lý tưởng để dạo phố mà còn là "phụ kiện" hoàn hảo cho
-              những bức hình xinh lung linh.
-            </p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="name">Bạn Lê Anh Đức</div>
-          <div class="content3">
-            <h1><i class="fas fa-quote-left"></i></h1>
-            <p>
-              Thiết kế thanh thoát và những chi tiết tinh tế, nó toát lên vẻ
-              năng động mà vẫn cực kỳ đáng yêu. Lướt nhẹ nhàng trên phố với
-              chiếc xe này, bạn sẽ cảm nhận ngay sự thoải mái và phong cách.
-            </p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="name">Bạn Trần Như Phương</div>
-          <div class="content3">
-            <h1><i class="fas fa-quote-left"></i></h1>
-            <p>
-              Kiểu dáng trẻ trung, màu sắc tươi tắn, nó mang đến cảm giác vui vẻ
-              và đầy năng lượng. Lái chiếc xe này dạo phố không chỉ thoải mái mà
-              còn cực kỳ phong cách.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- ---------------------testimonial------------------------------ -->
-  
-    <!-- --------------------------Footer-top-------------------------------------- -->
-    <section class="contact">
-      <div class="container1" id="container1-contact">
-        <div class="contactinfo">
-          <div class="content4">
-            <h1>Liên hệ với chúng tôi</h1>
-            <p>
-              Hỗ trợ 24/7: Đội ngũ nhân viên nhiệt tình, sẵn sàng hỗ trợ bạn mọi
-              lúc mọi nơi, đảm bảo chuyến đi của bạn luôn suôn sẻ.
-            </p>
-          </div>
-          <!-- Contact Info Column -->
-          <p>
-            Dịch vụ cho thuê xe máy
-            <strong style="color: #a63f52">Fino 110</strong> tự hào là đơn vị
-            cung cấp dịch vụ cho thuê xe máy uy tín hàng đầu tại Phan Thiết
-          </p>
-          <p><strong>Hotline:</strong> 0336 115 747</p>
-          <p><strong>Email:</strong> thuexemay.pt@gmail.com</p>
-          <div class="social-icons social-icons-nav">
-            <a href="https://zalo.me/0336115747" target="_blank"><img src="image/svg/zalo.svg" alt="zalo" class="zalo"></a>
-            <a href="https://www.tiktok.com/@thuexemayphanthiet.com" target="_blank"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.instagram.com/thuexemay.pt_03366115747/profilecard/?igsh=MXZsZnlkcHo2NWM0Zg==" target="_blank">
-              <img src="image/svg/ig.svg" alt="ig" class="ig">
-              </a><a href="https://www.facebook.com/profile.php?id=61566921902796" target="_blank"><i class="fab fa-facebook"></i></a>
-              <a href="https://www.threads.net/@thuexemay.pt_03366115747?invite=0" target="_blank">
-                <img src="image/svg/threads.svg" alt="threads" class="threads">
-              </a>
-          </div>
-        </div>
-  
-        <div class="contactform">
-          <!-- Map Column -->
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.483861014036!2d108.09626687583484!3d10.926775489231261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31768300f368ca0b%3A0x9f3bc279a687bd40!2zMWEgTMO9IFThu7EgVHLhu41uZywgxJDhu6ljIE5naMSpYSwgVGjDoG5oIHBo4buRIFBoYW4gVGhp4bq_dCwgQsOsbmggVGh14bqtbiwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1728315600136!5m2!1sen!2s" width="600" height="300" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </div>
-    </section>
-    <!-- --------------------------Footer-top-------------------------------------- -->
-  
-    <!-- --------------------------Footer-bottom-------------------------------------- -->
-  
-    <footer class="footer-distributed">
-      <!-- <div class="footer-right">
-        <a href="#"><i class="fab fa-facebook"></i></a>
-  
-        <a href="#"><i class="fab fa-instagram"></i> </a>
-        <a href="#"><i class="fab fa-twitter"></i> </a>
-        <a href="#"><i class="fab fa-github"></i> </a>
-        <a href="#"><i class="fab fa-linkedin-in"></i> </a>
-      </div> -->
-  
-      <div class="footer-left">
-        <p>Copyright © thuexemayphanthiet.com</p>
-      </div>
     </footer>
-  
-    <!-- --------------------------Footer-bottom-------------------------------------- -->
-  
-    <!-- ---------------------------------navbar JS--------------------------------------------- -->
-    <script src="js/nav.js"></script>
-    <!-- ---------------------------------navbar JS--------------------------------------------- -->
-  
-  
-  </body></html>
+
+</body>
+</html>
