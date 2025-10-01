@@ -463,9 +463,249 @@ nav {
 .note-content a:hover {
     text-decoration: underline;
 }
+
+/* Popup Modal Styles */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.popup-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-content {
+    background: white;
+    border-radius: 15px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: scale(0.7);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.popup-overlay.show .popup-content {
+    transform: scale(1);
+}
+
+.popup-header {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white;
+    padding: 20px;
+    border-radius: 15px 15px 0 0;
+    text-align: center;
+    position: relative; 
+}
+
+.popup-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 24px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.popup-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.popup-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    padding-right: 50px;
+}
+
+.popup-body {
+    padding: 25px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.popup-body h3 {
+    color: #dc3545;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.popup-body p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.popup-body ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.popup-body li {
+    margin-bottom: 8px;
+}
+
+.warning-text {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+    color: #856404;
+    font-weight: 500;
+}
+
+.important-text {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.contact-info {
+    background: #e7f3ff;
+    border: 1px solid #b3d7ff;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.footer-note {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+/* Responsive Design for Popup */
+@media (max-width: 768px) {
+    .popup-content {
+        max-width: 95%;
+        margin: 10px;
+    }
+    
+    .popup-header {
+        padding: 15px;
+    }
+    
+    .popup-title {
+        font-size: 16px;
+    }
+    
+    .popup-body {
+        padding: 20px;
+        font-size: 14px;
+    }
+    
+    .popup-close {
+        top: 10px;
+        right: 15px;
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .popup-content {
+        max-width: 98%;
+        margin: 5px;
+    }
+    
+    .popup-header {
+        padding: 12px;
+    }
+    
+    .popup-title {
+        font-size: 14px;
+        padding-right: 40px;
+    }
+    
+    .popup-body {
+        padding: 15px;
+        font-size: 13px;
+    }
+}
     </style>
 </head>
 <body>
+    <!-- Popup Thông Báo -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-content">
+            <div class="popup-header">
+                <button class="popup-close" onclick="closePopup()">&times;</button>
+                <h2 class="popup-title">🚨 THÔNG BÁO KHẨN CẤP 🚨</h2>
+            </div>
+            <div class="popup-body">
+                <h3>HUTECH - TRƯỜNG ĐẠI HỌC CÔNG NGHỆ TP.HCM</h3>
+                
+                <div class="warning-text">
+                    <strong>THÔNG BÁO KHẨN:</strong><br>
+                    Cảnh báo tin nhắn SMS giả mạo nhằm lừa đảo phụ huynh và sinh viên
+                </div>
+
+                <p><strong>Kính gửi:</strong> Quý Phụ huynh và Sinh viên Trường Đại học HUTECH,</p>
+
+                <p>Nhà trường ghi nhận tình trạng <span class="important-text">HỆ THỐNG SMS CHÍNH THỨC BỊ CHÈN NỘI DUNG GIẢ MẠO</span>. Kẻ gian lợi dụng để gửi thông tin giả, cụ thể:</p>
+
+                <ul>
+                    <li>Thông báo sinh viên học yếu, rớt môn.</li>
+                    <li>Yêu cầu đóng tiền học lại, chuyển vào <span class="important-text">TÀI KHOẢN NGÂN HÀNG giả mạo</span>.</li>
+                    <li>Cung cấp <span class="important-text">SỐ ĐIỆN THOẠI GIẢ</span> để phụ huynh gọi đến. Khi gọi, phụ huynh có thể bị <span class="important-text">TRỪ TIỀN VIỄN THÔNG VỚI MỨC PHÍ RẤT CAO</span> hoặc bị khai thác thông tin cá nhân.</li>
+                </ul>
+
+                <div class="warning-text">
+                    <strong>👉 Đây là HÌNH THỨC LỪA ĐẢO NGUY HIỂM.</strong><br>
+                    <strong>👉 HUTECH KHẲNG ĐỊNH:</strong> KHÔNG BAO GIỜ yêu cầu phụ huynh/sinh viên gọi điện, đóng tiền học lại hoặc nhận thông báo học tập qua SMS.
+                </div>
+
+                <h3>Đề nghị phụ huynh và sinh viên:</h3>
+                <ul>
+                    <li><span class="important-text">KHÔNG GỌI</span> đến bất kỳ SỐ ĐIỆN THOẠI nào trong SMS.</li>
+                    <li><span class="important-text">KHÔNG CHUYỂN TIỀN</span> vào bất kỳ TÀI KHOẢN NGÂN HÀNG nào được gửi kèm.</li>
+                    <li>Nếu nhận được tin nhắn dạng này, <span class="important-text">HÃY LẬP TỨC CHẶN SỐ ĐIỆN THOẠI</span>.</li>
+                </ul>
+
+                <div class="contact-info">
+                    <strong>Mọi thông tin chính thống của HUTECH chỉ được công bố qua:</strong><br>
+                    • Website: <strong>https://congthongtinhutech.com/</strong><br>
+                    • Fanpage Facebook chính thức
+                </div>
+
+                <div class="warning-text">
+                    <strong>🔴 CẢNH BÁO:</strong> Mọi hành vi giả mạo thương hiệu HUTECH nhằm lừa đảo sẽ bị xử lý nghiêm theo quy định pháp luật.<br>
+                    <strong>🔴 Đề nghị</strong> phụ huynh và sinh viên tuyệt đối cảnh giác để bảo vệ quyền lợi và tài sản của mình.
+                </div>
+
+                <div class="footer-note">
+                    <strong>Trân trọng thông báo.</strong><br><br>
+                    <strong>BAN GIÁM HIỆU TRƯỜNG ĐẠI HỌC HUTECH</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <!-- Header -->
         <div class="header">
@@ -754,5 +994,40 @@ nav {
 
         </div>
     </div>
+
+    <script>
+        // Popup Modal Functions
+        function showPopup() {
+            const popup = document.getElementById('popupOverlay');
+            popup.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Ngăn scroll khi popup mở
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('popupOverlay');
+            popup.classList.remove('show');
+            document.body.style.overflow = 'auto'; // Cho phép scroll lại
+        }
+
+        // Hiển thị popup khi trang load
+        window.addEventListener('load', function() {
+            // Delay một chút để trang load hoàn toàn
+            setTimeout(showPopup, 500);
+        });
+
+        // Đóng popup khi click vào overlay (ngoài popup content)
+        document.getElementById('popupOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePopup();
+            }
+        });
+
+        // Đóng popup khi nhấn phím ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePopup();
+            }
+        });
+    </script>
 </body>
 </html>

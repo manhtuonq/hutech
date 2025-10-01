@@ -3,288 +3,535 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lịch học</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Dashboard Theo Dõi Hành Vi Người Dùng - RemCuarSo.com</title>
     <style>
-        /* CSS cho popup và overlay */
-        .custom-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 999;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .custom-popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 800px; /* Tăng chiều rộng tối đa cho popup */
-            max-height: 90vh;
-            overflow-y: auto;
-            z-index: 1000;
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
         }
-        .table-header {
-            background-color: #f3f4f6; /* Màu xám nhạt cho header của bảng chính */
+        
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        
+        .logo {
+            font-size: 24px;
             font-weight: bold;
         }
+        
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: #4CAF50;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .dashboard {
+            padding: 30px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .stat-title {
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .stat-change {
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .positive { color: #4CAF50; }
+        .negative { color: #f44336; }
+        
+        .products-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .product-name {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .product-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .visitors-map {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .location-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .location-item:last-child {
+            border-bottom: none;
+        }
+        
+        .location-bar {
+            width: 200px;
+            height: 8px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0 15px;
+        }
+        
+        .location-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+            transition: width 2s ease-in-out;
+        }
+        
+        .counter {
+            animation: countUp 2s ease-in-out;
+        }
+        
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .facebook-status {
+            background: linear-gradient(135deg, #1877f2, #42a5f5);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .fb-icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+        
+        .live-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
     </style>
 </head>
-<body class="bg-gray-100 p-8">
+<body>
 
-    <div class="overflow-x-auto bg-white p-4 rounded-lg shadow">
-        <table class="w-full border border-collapse">
-            <thead>
-                <tr class="table-header">
-                    <th class="border p-2 text-left">Mã HP</th>
-                    <th class="border p-2 text-left">Tên học phần</th>
-                    <th class="border p-2 text-center">Nhóm HP</th>
-                    <th class="border p-2 text-center">STC</th>
-                    <th class="border p-2 text-center">KDK</th>
-                    <th class="border p-2 text-center">TH</th>
-                    <th class="border p-2 text-center">Thứ</th>
-                    <th class="border p-2 text-center">Tiết BD</th>
-                    <th class="border p-2 text-center">ST</th>
-                    <th class="border p-2 text-center">Phòng</th>
-                    <th class="border p-2 text-center">CBGD</th>
-                    <th class="border p-2 text-center">Tuần</th>
-                    <th class="border p-2 text-center">Tài liệu</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="border p-2">POS107</td>
-                    <td class="border p-2 text-blue-600 hover:underline cursor-pointer" onclick="showPopup('POS107')">Lịch sử Đảng Cộng sản Việt Nam</td>
-                    <td class="border p-2 text-center">40</td>
-                    <td class="border p-2 text-center">2</td>
-                    <td class="border p-2"></td>
-                    <td class="border p-2"></td>
-                    <td class="border p-2 text-center">Hai</td>
-                    <td class="border p-2 text-center">7-11</td>
-                    <td class="border p-2 text-center">5</td>
-                    <td class="border p-2 text-center">E1-08.10</td>
-                    <td class="border p-2"></td>
-                    <td class="border p-2">05/06/2025-30/06/2025</td>
-                    <td class="border p-2"></td>
-                </tr>
-                <tr>
-                    <td class="border p-2">PSY101</td>
-                    <td class="border p-2 text-blue-600 hover:underline cursor-pointer" onclick="showPopup('PSY101')">Tâm lý học ứng dụng</td>
-                    <td class="border p-2 text-center">40</td>
-                    <td class="border p-2 text-center">2</td>
-                    <td class="border p-2"></td>
-                    <td class="border p-2"></td>
-                    <td class="border p-2 text-center">Ba</td>
-                    <td class="border p-2 text-center">2-6</td>
-                    <td class="border p-2 text-center">5</td>
-                    <td class="border p-2 text-center">E1-08.10</td>
-                    <td class="border p-2"></td>
-                    <td class="border p-2">05/06/2025-30/06/2025</td>
-                    <td class="border p-2"></td>
-                </tr>
-                 <tr>
-                    <td class="border p-2">CNTT013</td>
-                    <td class="border p-2 text-blue-600 hover:underline cursor-pointer" onclick="showPopup('CNTT013')">Nhập môn công nghệ thông tin</td>
-                    <td class="border p-2 text-center">57</td>
-                    <td class="border p-2 text-center">3</td>
-                    <td class="border p-2"></td>
-                    <td class="border p-2"></td>
-                    <td class="border p-2 text-center">Tư</td>
-                    <td class="border p-2 text-center">2-6</td>
-                    <td class="border p-2 text-center">5</td>
-                    <td class="border p-2 text-center">E1-08.14</td>
-                    <td class="border p-2"></td>
-                    <td class="border p-2">05/06/2025-30/06/2025</td>
-                    <td class="border p-2"></td>
-                </tr>
-                <tr>
-                    <td class="border p-2">NTTD112</td>
-                    <td class="border p-2 text-blue-600 hover:underline cursor-pointer" onclick="showPopup('NTTD112')">Nghệ Thuật Trang Điểm</td>
-                    <td class="border p-2 text-center">57</td>
-                    <td class="border p-2 text-center">3</td>
-                    <td class="border p-2"></td>
-                    <td class="border p-2"></td>
-                    <td class="border p-2 text-center">Sáu</td>
-                    <td class="border p-2 text-center">2</td>
-                    <td class="border p-2 text-center">5</td>
-                    <td class="border p-2 text-center">E1-08.14</td>
-                    <td class="border p-2"></td>
-                    <td class="border p-2">07/07/2025-10/08/2025</td>
-                    <td class="border p-2"></td>
-                </tr>
-
-            </tbody>
-        </table>
-    </div>
-
-    <div id="overlay" class="custom-overlay" onclick="closePopup()"></div>
-    
-    <div id="popup" class="custom-popup bg-white rounded shadow-lg">
-        <div class="bg-gray-100 p-4">
-            <div class="flex justify-between items-center mb-4">
-                <div>
-                    <a href="#" class="text-gray-500">Trang chủ</a> / 
-                    <a href="#" class="text-gray-500">Học vụ</a> / 
-                    <a href="#" class="text-gray-500">Lớp học...</a>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">📊 RemCuarSo.com Analytics</div>
+                <div class="status">
+                    <div class="status-dot"></div>
+                    <span>Đang hoạt động</span>
                 </div>
-                <button onclick="closePopup()" class="text-gray-500 hover:text-gray-800">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                </button>
             </div>
-            <div class="text-xl font-bold">Lớp: <span id="class-title"></span></div>
         </div>
-        
-        <div class="p-4">
-            <div class="flex border-b">
-                <button class="py-2 px-4 font-medium border-b-2 border-transparent text-gray-500 hover:text-blue-500 focus:outline-none" onclick="showTab(this, 'announcements')">Thông báo</button>
-                <button class="py-2 px-4 font-medium border-b-2 border-blue-500 text-blue-500 focus:outline-none" onclick="showTab(this, 'attendance')">Điểm danh</button>
+    </header>
+
+    <main class="dashboard">
+        <div class="container">
+            <div class="facebook-status">
+                <div class="fb-icon">📘</div>
+                <h3>Facebook RemCuarSo.com</h3>
+                <p>🎉 Đang hưởng thụ thành công!</p>
+                <div class="live-indicator">
+                    <div class="status-dot"></div>
+                    LIVE
+                </div>
             </div>
-            
-            <div id="attendance-content" class="mt-4">
-                <div class="bg-white p-4 rounded border">
-                    <div class="font-medium mb-4">Tổng số buổi vắng: <span id="total-absences" class="text-red-500"></span></div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-title">Tổng Click Sản Phẩm</div>
+                        <div class="stat-icon" style="background: #e3f2fd; color: #1976d2;">👆</div>
+                    </div>
+                    <div class="stat-value counter" id="totalClicks">12,347</div>
+                    <div class="stat-change positive">
+                        ↗️ +23% so với hôm qua
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-title">Tổng Lượt Like</div>
+                        <div class="stat-icon" style="background: #fce4ec; color: #c2185b;">❤️</div>
+                    </div>
+                    <div class="stat-value counter" id="totalLikes">8,956</div>
+                    <div class="stat-change positive">
+                        ↗️ +45% so với hôm qua
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-title">Người Dùng Trực Tuyến</div>
+                        <div class="stat-icon" style="background: #e8f5e8; color: #388e3c;">👥</div>
+                    </div>
+                    <div class="stat-value counter" id="onlineUsers">1,234</div>
+                    <div class="stat-change positive">
+                        ↗️ +12% so với lúc trước
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-title">Doanh Thu Hôm Nay</div>
+                        <div class="stat-icon" style="background: #fff3e0; color: #f57c00;">💰</div>
+                    </div>
+                    <div class="stat-value counter">₫45,678,900</div>
+                    <div class="stat-change positive">
+                        ↗️ +67% so với hôm qua
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-title">Tỷ Lệ Chuyển Đổi</div>
+                        <div class="stat-icon" style="background: #f3e5f5; color: #7b1fa2;">📈</div>
+                    </div>
+                    <div class="stat-value counter">4.8%</div>
+                    <div class="stat-change positive">
+                        ↗️ +0.8% so với tuần trước
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-title">Tương Tác Facebook</div>
+                        <div class="stat-icon" style="background: #e3f2fd; color: #1976d2;">📱</div>
+                    </div>
+                    <div class="stat-value counter" id="fbEngagement">15,672</div>
+                    <div class="stat-change positive">
+                        ↗️ +89% so với tuần trước
+                    </div>
+                </div>
+            </div>
+
+            <div class="products-section">
+                <h2 class="section-title">🔥 Sản Phẩm Hot Nhất</h2>
+                <div class="products-grid">
+                    <div class="product-card" onclick="incrementClicks(this, 'product1')">
+                        <div class="product-name">iPhone 15 Pro Max</div>
+                        <div class="product-stats">
+                            <span>👆 <span class="click-count">2,456</span> clicks</span>
+                            <span>❤️ <span class="like-count">1,234</span> likes</span>
+                        </div>
+                    </div>
                     
-                    <table class="w-full border-collapse">
-                        <thead>
-                            <tr class="bg-blue-600 text-white">
-                                <th class="p-2 text-left">Buổi học</th>
-                                <th class="p-2 text-left">Tình trạng</th>
-                                <th class="p-2 text-center">Chi tiết</th>
-                            </tr>
-                        </thead>
-                        <tbody id="attendance-table-body">
-                        </tbody>
-                    </table>
+                    <div class="product-card" onclick="incrementClicks(this, 'product2')">
+                        <div class="product-name">Samsung Galaxy S24</div>
+                        <div class="product-stats">
+                            <span>👆 <span class="click-count">1,987</span> clicks</span>
+                            <span>❤️ <span class="like-count">987</span> likes</span>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card" onclick="incrementClicks(this, 'product3')">
+                        <div class="product-name">MacBook Pro M3</div>
+                        <div class="product-stats">
+                            <span>👆 <span class="click-count">1,654</span> clicks</span>
+                            <span>❤️ <span class="like-count">876</span> likes</span>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card" onclick="incrementClicks(this, 'product4')">
+                        <div class="product-name">Apple Watch Series 9</div>
+                        <div class="product-stats">
+                            <span>👆 <span class="click-count">1,321</span> clicks</span>
+                            <span>❤️ <span class="like-count">654</span> likes</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div id="announcements-content" class="mt-4 hidden">
-                <div class="bg-white p-4 rounded border">
-                    <p>Không có thông báo mới.</p>
+
+            <div class="visitors-map">
+                <h2 class="section-title">🌍 Nguồn Khách Hàng</h2>
+                <div class="location-item">
+                    <span>🇻🇳 Hồ Chí Minh</span>
+                    <div class="location-bar">
+                        <div class="location-progress" style="width: 85%"></div>
+                    </div>
+                    <span>42.3%</span>
+                </div>
+                <div class="location-item">
+                    <span>🇻🇳 Hà Nội</span>
+                    <div class="location-bar">
+                        <div class="location-progress" style="width: 65%"></div>
+                    </div>
+                    <span>31.2%</span>
+                </div>
+                <div class="location-item">
+                    <span>🇻🇳 Đà Nẵng</span>
+                    <div class="location-bar">
+                        <div class="location-progress" style="width: 45%"></div>
+                    </div>
+                    <span>18.5%</span>
+                </div>
+                <div class="location-item">
+                    <span>🌐 Quốc tế</span>
+                    <div class="location-bar">
+                        <div class="location-progress" style="width: 25%"></div>
+                    </div>
+                    <span>8.0%</span>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
     <script>
-        // =================================================================
-        // DỮ LIỆU CHI TIẾT CỦA CÁC HỌC PHẦN
-        // Bạn có thể thêm/sửa/xóa dữ liệu của các học phần tại đây.
-        // Mã HP phải trùng với mã trong bảng HTML.
-        // =================================================================
-        const coursesData = {
-            'POS107': {
-                name: 'Lịch sử Đảng Cộng sản Việt Nam',
-                totalAbsences: 1,
-                sessions: [
-                    { date: 'Tiết 7 - 11, ngày 05/06/2025', status: 'có mặt', statusColor: 'text-blue-500' },
-                    { date: 'Tiết 7 - 11, ngày 12/06/2025', status: 'vắng', statusColor: 'text-red-500' },
-                    { date: 'Tiết 7 - 11, ngày 19/06/2025', status: 'có mặt', statusColor: 'text-blue-500' },
-                    { date: 'Tiết 7 - 11, ngày 26/06/2025', status: 'chưa điểm danh', statusColor: 'text-gray-500' },
-                ]
-            },
-            'PSY101': {
-                name: 'Tâm lý học ứng dụng',
-                totalAbsences: 0,
-                sessions: [
-                    { date: 'Tiết 2 - 6, ngày 06/06/2025', status: 'có mặt', statusColor: 'text-blue-500' },
-                    { date: 'Tiết 2 - 6, ngày 13/06/2025', status: 'có mặt', statusColor: 'text-blue-500' },
-                    { date: 'Tiết 2 - 6, ngày 20/06/2025', status: 'chưa điểm danh', statusColor: 'text-gray-500' },
-                ]
-            },
-            'CNTT013': {
-                name: 'Nhập môn công nghệ thông tin',
-                totalAbsences: 2,
-                sessions: [
-                    { date: 'Tiết 2 - 6, ngày 07/06/2025', status: 'có mặt', statusColor: 'text-blue-500' },
-                    { date: 'Tiết 2 - 6, ngày 14/06/2025', status: 'vắng', statusColor: 'text-red-500' },
-                    { date: 'Tiết 2 - 6, ngày 21/06/2025', status: 'vắng', statusColor: 'text-red-500' },
-                    { date: 'Tiết 2 - 6, ngày 28/06/2025', status: 'chưa điểm danh', statusColor: 'text-gray-500' },
-                    { date: 'Tiết 2 - 6, ngày 05/07/2025', status: 'chưa điểm danh', statusColor: 'text-gray-500' },
-                ]
-            },
-            'NTTD112': {
-                name: 'Nghệ Thuật Trang Điểm',
-                totalAbsences: 0,
-                sessions: [
-                    { date: 'Tiết 2 - 5, ngày 07/07/2025', status: 'chưa điểm danh', statusColor: 'text-gray-500' },
-                    { date: 'Tiết 2 - 5, ngày 14/07/2025', status: 'chưa điểm danh', statusColor: 'text-gray-500' },
-                ]
-            }
-        };
-
-        function showPopup(courseId) {
-            const course = coursesData[courseId];
-            if (!course) {
-                console.error("Không tìm thấy dữ liệu cho mã học phần:", courseId);
-                return;
-            }
-
-            // Cập nhật các thông tin chung
-            document.getElementById('class-title').textContent = course.name;
-            document.getElementById('total-absences').textContent = course.totalAbsences;
+        // Animation cho các số đếm
+        function animateNumber(element, start, end, duration) {
+            let startTime = null;
             
-            // Lấy tbody của bảng điểm danh
-            const attendanceTableBody = document.getElementById('attendance-table-body');
-            
-            // Xóa hết các dòng cũ trước khi thêm dòng mới
-            attendanceTableBody.innerHTML = ''; 
-
-            // Lặp qua dữ liệu các buổi học và tạo các hàng (tr) mới cho bảng
-            course.sessions.forEach(session => {
-                const row = document.createElement('tr');
-                row.className = 'border-b';
+            function animate(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const progress = Math.min(timeElapsed / duration, 1);
                 
-                row.innerHTML = `
-                    <td class="p-2">${session.date}</td>
-                    <td class="p-2 ${session.statusColor}">${session.status}</td>
-                    <td class="p-2 text-center"><button class="text-blue-500 hover:underline">chi tiết</button></td>
-                `;
+                const current = Math.floor(progress * (end - start) + start);
+                element.textContent = current.toLocaleString('vi-VN');
                 
-                attendanceTableBody.appendChild(row);
-            });
-
-            // Hiển thị popup và overlay
-            document.getElementById('overlay').style.display = 'block';
-            document.getElementById('popup').style.display = 'block';
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                }
+            }
+            
+            requestAnimationFrame(animate);
         }
-        
-        function closePopup() {
-            document.getElementById('overlay').style.display = 'none';
-            document.getElementById('popup').style.display = 'none';
-        }
-        
-        function showTab(button, tabName) {
-            // Lấy tất cả các nút tab và content
-            const tabsContainer = button.parentElement;
-            const tabButtons = tabsContainer.querySelectorAll('button');
-            const attendanceContent = document.getElementById('attendance-content');
-            const announcementsContent = document.getElementById('announcements-content');
 
-            // Reset style cho tất cả các nút
-            tabButtons.forEach(btn => {
-                btn.classList.remove('text-blue-500', 'border-blue-500');
-                btn.classList.add('text-gray-500', 'border-transparent');
+        // Khởi tạo animation khi trang load
+        window.addEventListener('load', function() {
+            animateNumber(document.getElementById('totalClicks'), 0, 12347, 2000);
+            animateNumber(document.getElementById('totalLikes'), 0, 8956, 2000);
+            animateNumber(document.getElementById('onlineUsers'), 0, 1234, 2000);
+            animateNumber(document.getElementById('fbEngagement'), 0, 15672, 2000);
+        });
+
+        // Tăng số click và like khi nhấn vào sản phẩm
+        function incrementClicks(card, productId) {
+            const clickElement = card.querySelector('.click-count');
+            const likeElement = card.querySelector('.like-count');
+            
+            let currentClicks = parseInt(clickElement.textContent.replace(',', ''));
+            let currentLikes = parseInt(likeElement.textContent.replace(',', ''));
+            
+            // Tăng click
+            currentClicks += Math.floor(Math.random() * 5) + 1;
+            clickElement.textContent = currentClicks.toLocaleString('vi-VN');
+            
+            // Tăng like (tỷ lệ thấp hơn)
+            if (Math.random() > 0.7) {
+                currentLikes += Math.floor(Math.random() * 3) + 1;
+                likeElement.textContent = currentLikes.toLocaleString('vi-VN');
+                
+                // Hiệu ứng tim bay lên
+                createFloatingHeart(card);
+            }
+            
+            // Hiệu ứng click
+            card.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                card.style.transform = 'scale(1)';
+            }, 100);
+        }
+
+        // Tạo hiệu ứng tim bay lên
+        function createFloatingHeart(container) {
+            const heart = document.createElement('div');
+            heart.textContent = '❤️';
+            heart.style.position = 'absolute';
+            heart.style.fontSize = '20px';
+            heart.style.pointerEvents = 'none';
+            heart.style.zIndex = '1000';
+            heart.style.animation = 'floatUp 2s ease-out forwards';
+            
+            const rect = container.getBoundingClientRect();
+            heart.style.left = (rect.left + Math.random() * rect.width) + 'px';
+            heart.style.top = rect.top + 'px';
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 2000);
+        }
+
+        // CSS cho animation tim bay
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatUp {
+                0% {
+                    opacity: 1;
+                    transform: translateY(0px) scale(0.5);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translateY(-100px) scale(1.5);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Cập nhật số liệu real-time
+        setInterval(() => {
+            const onlineUsers = document.getElementById('onlineUsers');
+            const currentUsers = parseInt(onlineUsers.textContent.replace(',', ''));
+            const change = Math.floor(Math.random() * 20) - 10; // +/- 10
+            const newUsers = Math.max(1000, currentUsers + change);
+            onlineUsers.textContent = newUsers.toLocaleString('vi-VN');
+            
+            // Cập nhật tương tác Facebook
+            const fbEngagement = document.getElementById('fbEngagement');
+            const currentEngagement = parseInt(fbEngagement.textContent.replace(',', ''));
+            const fbChange = Math.floor(Math.random() * 50) + 10; // +10 to +60
+            const newEngagement = currentEngagement + fbChange;
+            fbEngagement.textContent = newEngagement.toLocaleString('vi-VN');
+        }, 5000);
+
+        // Hiệu ứng hover cho progress bars
+        document.querySelectorAll('.location-progress').forEach(bar => {
+            bar.addEventListener('mouseover', function() {
+                this.style.background = 'linear-gradient(90deg, #ff6b6b, #ffd93d)';
             });
             
-            // Thêm style active cho nút được click
-            button.classList.add('text-blue-500', 'border-blue-500');
-            button.classList.remove('text-gray-500', 'border-transparent');
+            bar.addEventListener('mouseout', function() {
+                this.style.background = 'linear-gradient(90deg, #667eea, #764ba2)';
+            });
+        });
 
-            // Hiển thị content tương ứng
-            if (tabName === 'attendance') {
-                attendanceContent.classList.remove('hidden');
-                announcementsContent.classList.add('hidden');
-            } else {
-                attendanceContent.classList.add('hidden');
-                announcementsContent.classList.remove('hidden');
-            }
-        }
     </script>
 </body>
 </html>
